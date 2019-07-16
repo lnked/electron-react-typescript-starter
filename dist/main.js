@@ -2,31 +2,44 @@
 
 var _electron = require("electron");
 
+var _electronIsDev = _interopRequireDefault(require("electron-is-dev"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-var mainWindow = null;
+var clientWin = null;
 var rootPath = process.cwd();
 var publicPath = "".concat(rootPath, "/public"); // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 
 _electron.app.on('ready', function () {
-  mainWindow = new _electron.BrowserWindow({
+  clientWin = new _electron.BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: false,
+      preload: __dirname + '/client-preload.js'
     }
   });
-  mainWindow.loadURL("file://".concat(publicPath, "/index.html")); // Open the DevTools.
+  console.log({
+    isDev: _electronIsDev["default"]
+  });
+  clientWin.loadURL("file://".concat(publicPath, "/index.html")); // Open the DevTools.
 
-  mainWindow.webContents.openDevTools(); // Emitted when the window is closed.
+  clientWin.webContents.openDevTools(); // clientWin.webContents.on('did-finish-load', () => {
+  //   clientWin.webContents.send('set-socket', {
+  //     name: serverSocket,
+  //   })
+  // });
+  // Emitted when the window is closed.
 
-  mainWindow.on('closed', function () {
+  clientWin.on('closed', function () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    win = null;
+    clientWin = null;
   });
 }); // Quit when all windows are closed.
 
@@ -42,7 +55,7 @@ _electron.app.on('window-all-closed', function () {
 _electron.app.on('activate', function () {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
+  if (clientWin === null) {
     createWindow();
   }
 });

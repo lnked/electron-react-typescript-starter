@@ -22,6 +22,7 @@
     "concurrently": "4.1.1",
     "cross-env": "5.2.0",
     "electron": "5.0.7",
+    "electron-devtools-installer": "2.2.4",
     "husky": "3.0.0",
     "jest": "24.8.0",
     "lint-staged": "9.2.0",
