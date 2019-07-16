@@ -18,10 +18,7 @@ const installExtensions = async () => {
 // be closed automatically when the JavaScript object is garbage collected.
 let clientWin = null;
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', async () => {
+const createWindow = async () => {
   if (isDev) {
     await installExtensions();
   }
@@ -65,7 +62,12 @@ app.on('ready', async () => {
   clientWin.on('closed', () => {
     clientWin = null;
   });
-});
+}
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', createWindow);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

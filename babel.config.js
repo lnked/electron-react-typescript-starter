@@ -4,11 +4,14 @@ module.exports = (api) => {
   return {
     presets: [
       ['@babel/preset-env', {
-          targets: {
-            electron: '5.0.7',
-          },
-          corejs: 3,
-          useBuiltIns: 'usage',
+        loose: true,
+        targets: {
+          electron: '5.0.7',
+        },
+        corejs: 3,
+        modules: 'commonjs',
+        useBuiltIns: 'usage',
+        shippedProposals: true,
       }],
     ],
     plugins: [
@@ -31,5 +34,6 @@ module.exports = (api) => {
       ['@babel/plugin-transform-react-constant-elements'],
       ['@babel/plugin-transform-react-inline-elements'],
     ],
+    comments: true,
   };
 };
