@@ -1,10 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 import isDev from 'electron-is-dev';
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let clientWin = null;
-
 const rootPath = process.cwd();
 const publicPath = `${rootPath}/public`
 
@@ -17,6 +13,10 @@ const installExtensions = async () => {
     extensions.map(name => installer.default(installer[name], forceDownload))
   ).catch(console.log);
 };
+
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let clientWin = null;
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -32,7 +32,8 @@ app.on('ready', async () => {
     height: 728,
     webPreferences: {
       nodeIntegration: false,
-      preload: __dirname + '/client-preload.js',
+      contextIsolation: true,
+      preload: `${publicPath}/client-preload.js`,
     },
   });
 
