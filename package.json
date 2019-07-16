@@ -5,9 +5,9 @@
   "author": "Edik Bulikyan <ed.proff@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build-main": "cross-env NODE_ENV=production babel src/app/main.dev.js -o dist/main.js",
     "prestart": "yarn build-main",
-    "start": "electron dist/main.js",
-    "build-main": "cross-env NODE_ENV=production babel app/main.dev.js -o dist/main.js"
+    "start": "electron dist/main.js"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
@@ -34,6 +34,7 @@
     "webpack-cli": "3.3.6"
   },
   "dependencies": {
+    "core-js": "3.1.4",
     "electron-is-dev": "1.1.0",
     "node-ipc": "9.1.1",
     "react": "16.8.6",

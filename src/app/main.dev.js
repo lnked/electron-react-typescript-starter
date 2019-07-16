@@ -21,7 +21,7 @@ const installExtensions = async () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', () => {
+app.on('ready', async () => {
   if (isDev) {
     await installExtensions();
   }
@@ -48,21 +48,21 @@ app.on('ready', () => {
   // });
 
   // @TODO: Use 'ready-to-show' event
-  //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
-  mainWindow.webContents.on('did-finish-load', () => {
-    if (!mainWindow) {
-      throw new Error('"mainWindow" is not defined');
+  // https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
+  clientWin.webContents.on('did-finish-load', () => {
+    if (!clientWin) {
+      throw new Error('"clientWin" is not defined');
     }
     if (process.env.START_MINIMIZED) {
-      mainWindow.minimize();
+      clientWin.minimize();
     } else {
-      mainWindow.show();
-      mainWindow.focus();
+      clientWin.show();
+      clientWin.focus();
     }
   });
 
-  mainWindow.on('closed', () => {
-    mainWindow = null;
+  clientWin.on('closed', () => {
+    clientWin = null;
   });
 });
 
