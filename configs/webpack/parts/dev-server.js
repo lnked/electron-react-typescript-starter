@@ -3,11 +3,10 @@ const options = require('../options');
 module.exports = options.development && {
   devServer: {
     hot: true,
-    open: true,
+    open: false,
     overlay: true,
     compress: true,
     publicPath: '/',
-    // contentBase: ['./dist'],
     historyApiFallback: true,
     clientLogLevel: 'error',
     headers: {
