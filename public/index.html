@@ -5,31 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <base href="/" />
-
-  <title>Test App</title>
+  <title><%= htmlWebpackPlugin.options.title %></title>
 <head>
 <body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+
   <main id="app-root" class="wrapper">App</main>
-
-  <p>1</p>
-  <p>2</p>
-
-  <script>
-    // Try window.readClipboard directly (works with no isolation)
-    document.getElementsByTagName("p")[0].innerText =
-      window.readClipboard && window.readClipboard()
-    // Try the same with postMessage
-    const readClipboardMessage = () => {
-      window.postMessage({ type: "READCLIP_REQ" }, "*")
-    }
-    window.addEventListener("message", (event) => {
-      if (event.source != window) return
-      if (event.data.type && (event.data.type == "READCLIP_ANS")) {
-        document.getElementsByTagName("p")[1].innerText = event.data.text
-      }
-    }, false)
-    readClipboardMessage()
-  </script>
 </body>
 </html>

@@ -2,7 +2,7 @@ import { app, BrowserWindow } from 'electron';
 import isDev from 'electron-is-dev';
 
 const rootPath = process.cwd();
-const publicPath = `${rootPath}/public`
+const publicPath = `${rootPath}/dist`
 
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
