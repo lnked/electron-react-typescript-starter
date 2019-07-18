@@ -1,5 +1,7 @@
 module.exports = (api) => {
-  api.env();
+  api.env()
+
+  const development = api.env('development')
 
   return {
     presets: [
@@ -7,11 +9,21 @@ module.exports = (api) => {
         loose: true,
         targets: {
           electron: '5.0.7',
+          browsers: 'last 2 versions',
         },
         corejs: 3,
         modules: 'commonjs',
+        // modules: false,
         useBuiltIns: 'usage',
         shippedProposals: true,
+      }],
+      ['@babel/preset-typescript'],
+      ['@babel/preset-react', { development }],
+      ['@emotion/babel-preset-css-prop', {
+        autoLabel: true,
+        labelFormat: '[local]',
+        useBuiltIns: false,
+        throwIfNamespace: true,
       }],
     ],
     plugins: [
@@ -33,7 +45,9 @@ module.exports = (api) => {
       ['@babel/plugin-proposal-export-namespace-from'],
       ['@babel/plugin-transform-react-constant-elements'],
       ['@babel/plugin-transform-react-inline-elements'],
+      ['react-hot-loader/babel'],
+      ['@babel/plugin-transform-async-to-generator'],
     ],
     comments: true,
-  };
-};
+  }
+}

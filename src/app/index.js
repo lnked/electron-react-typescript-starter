@@ -1,26 +1,22 @@
 import { app, BrowserWindow } from 'electron';
 import isDev from 'electron-is-dev';
+import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer'
+
+if (!isDev) {
+  const sourceMapSupport = require('source-map-support');
+  sourceMapSupport.install();
+}
 
 const rootPath = process.cwd();
 const publicPath = `${rootPath}/dist`
-
-const installExtensions = async () => {
-  const installer = require('electron-devtools-installer');
-  const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-  const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
-
-  return Promise.all(
-    extensions.map(name => installer.default(installer[name], forceDownload))
-  ).catch(console.log);
-};
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let clientWin = null;
 
 const createWindow = async () => {
-  if (isDev) {
-    await installExtensions();
+  if(isDev) {
+    await installExtension(REACT_DEVELOPER_TOOLS);
   }
 
   clientWin = new BrowserWindow({
@@ -34,10 +30,16 @@ const createWindow = async () => {
     },
   });
 
-  clientWin.loadURL(`file://${publicPath}/index.html`);
+  if(isDev) {
+    clientWin.loadURL('http://localhost:8081/index.html');
 
-  // Open the DevTools.
-  clientWin.webContents.openDevTools();
+    // Open the DevTools.
+    clientWin.webContents.openDevTools();
+  }
+  else {
+    // clientWin.loadURL(`file://${publicPath}/index.html`);
+    clientWin.loadFile(`${publicPath}/index.html`);
+  }
 
   // clientWin.webContents.on('did-finish-load', () => {
   //   clientWin.webContents.send('set-socket', {

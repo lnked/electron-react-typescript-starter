@@ -13,7 +13,7 @@ const duplicates = {
   'hoist-non-react-statics': resolve(root, 'node_modules/hoist-non-react-statics'),
   '@babel/runtime': resolve(root, 'node_modules/@babel/runtime'),
   '@emotion/serialize': resolve(root, 'node_modules/@emotion/serialize'),
-  // 'react-dom': '@hot-loader/react-dom',
+  'react-dom': '@hot-loader/react-dom',
 };
 
 const noParse = {
@@ -29,9 +29,9 @@ module.exports = {
   utils: resolve(sourcePath, 'utils'),
   hooks: resolve(sourcePath, 'hooks'),
   store: resolve(sourcePath, 'store'),
-  pages: resolve(sourcePath, 'pages'),
   theme: resolve(sourcePath, 'theme'),
   assets: resolve(sourcePath, 'assets'),
+  screens: resolve(sourcePath, 'screens'),
   layouts: resolve(sourcePath, 'layouts'),
   services: resolve(sourcePath, 'services'),
   settings: resolve(sourcePath, 'settings'),

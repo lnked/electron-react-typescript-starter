@@ -1,25 +1,14 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { setConfig } from 'react-hot-loader';
 
-// import { environment } from './settings';
+import App from './App';
 
-setConfig({
-  ignoreSFC: true,
-  pureRender: true,
-});
+const renderApp = () => {
+  ReactDom.render(<App />, document.getElementById('app-root'));
+}
 
-ReactDom.render(
-  <div>
-    React App
-  </div>,
-  document.getElementById('app-root')
-);
+renderApp()
 
-// if (environment.development && module.hot) {
-//   module.hot.accept();
-// }
-
-// if (environment.development) {
-//   ReactEmitter();
-// }
+if (module.hot) {
+  module.hot.accept(renderApp)
+}
