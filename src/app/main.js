@@ -14,6 +14,11 @@ const publicPath = `${rootPath}/dist`
 // be closed automatically when the JavaScript object is garbage collected.
 let clientWin = null;
 
+app.commandLine.appendSwitch('disable-web-security');
+app.commandLine.appendSwitch('web-security');
+app.commandLine.appendSwitch('allow-displaying-insecure-content');
+app.commandLine.appendSwitch('ignore-certificate-errors');
+
 const createWindow = async () => {
   if(isDev) {
     await installExtension(REACT_DEVELOPER_TOOLS);
@@ -26,14 +31,12 @@ const createWindow = async () => {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      preload: `${publicPath}/client-preload.js`,
+      preload: `${publicPath}/preload.js`,
     },
   });
 
   if(isDev) {
     clientWin.loadURL('http://localhost:8081/index.html');
-
-    // Open the DevTools.
     clientWin.webContents.openDevTools();
   }
   else {
@@ -41,15 +44,12 @@ const createWindow = async () => {
     clientWin.loadFile(`${publicPath}/index.html`);
   }
 
-  // clientWin.webContents.on('did-finish-load', () => {
-  //   clientWin.webContents.send('set-socket', {
-  //     name: serverSocket,
-  //   })
-  // });
-
   // @TODO: Use 'ready-to-show' event
   // https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
   clientWin.webContents.on('did-finish-load', () => {
+    // clientWin.webContents.send('set-socket', {
+    //   name: serverSocket,
+    // })
     if (!clientWin) {
       throw new Error('"clientWin" is not defined');
     }
@@ -62,6 +62,7 @@ const createWindow = async () => {
   });
 
   clientWin.on('closed', () => {
+    clientWin.removeAllListeners();
     clientWin = null;
   });
 }
@@ -78,7 +79,7 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
-})
+});
 
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
