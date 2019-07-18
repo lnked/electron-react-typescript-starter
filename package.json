@@ -123,6 +123,7 @@
     "@hot-loader/react-dom": "16.8.6",
     "core-js": "3",
     "electron-is-dev": "1.1.0",
+    "history": "4.9.0",
     "node-ipc": "9.1.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
