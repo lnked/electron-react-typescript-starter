@@ -63,7 +63,7 @@
     "@types/react-hot-loader": "4.1.0",
     "@types/react-router-dom": "4.3.4",
     "@types/semver": "6.0.1",
-    "@types/webpack": "4.4.35",
+    "@types/webpack": "4.32.0",
     "babel-loader": "8.0.6",
     "cache-loader": "4.1.0",
     "cleanup-webpack-plugin": "0.0.1",
