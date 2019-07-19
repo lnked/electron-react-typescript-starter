@@ -7,9 +7,9 @@
   "scripts": {
     "clear:dist": "rimraf -rf ./dist/*",
     "clear:cache": "rimraf -rf ./.cache/*",
-    "babel:script": "babel -d dist --no-comments --plugins @babel/plugin-transform-modules-commonjs",
-    "main": "yarn babel:script src/app/main.js",
-    "preload": "yarn babel:script src/app/preload.js --minified",
+    "babel:script": "babel --no-comments --plugins @babel/plugin-transform-modules-commonjs",
+    "main": "yarn babel:script src/app/main -o dist/main.js",
+    "preload": "yarn babel:script src/app/preload.js -d dist --minified",
     "main:build": "cross-env NODE_ENV=production yarn main --minified",
     "main:start": "cross-env NODE_ENV=development yarn main --watch --verbose",
     "prestart": "yarn clear:dist && yarn preload && yarn main:build",
