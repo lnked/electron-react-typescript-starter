@@ -1,6 +1,6 @@
-const { app, Menu } = require('electron')
+import { app, Menu } from 'electron';
 
-const isMac = /darwin/.test(process.platform);
+import { isMac } from './options';
 
 const template = [
   // { role: 'appMenu' }

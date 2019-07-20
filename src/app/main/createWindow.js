@@ -1,20 +1,22 @@
-import isDev from 'electron-is-dev';
-import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer'
 import { BrowserWindow, globalShortcut } from 'electron';
+// import installExtension, { MOBX_DEVTOOLS, REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer'
 
-const rootPath = process.cwd();
-const distPath = `${rootPath}/dist`
-const publicPath = `${rootPath}/public`
+import { isDevMode, distPath, publicPath } from './options';
+import './menu';
 
 // https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetpositionx-y-animate
 // https://xwartz.gitbooks.io/electron-gitbook/content/en/api/browser-window.html
 
-const createWindow = mainWindow => async () => {
-  if(isDev) {
-    await installExtension(REACT_DEVELOPER_TOOLS);
+const createWindow = win => async () => {
+  if (isDevMode) {
+    const {
+      default: installExtension, MOBX_DEVTOOLS, REACT_DEVELOPER_TOOLS
+    } = require('electron-devtools-installer');
+
+    await installExtension([MOBX_DEVTOOLS, REACT_DEVELOPER_TOOLS]);
   }
 
-  mainWindow = new BrowserWindow({
+  win = new BrowserWindow({
     // show: false,
     frame: false,
     // width: 1024,
@@ -39,67 +41,69 @@ const createWindow = mainWindow => async () => {
   });
 
   const reloadWindow = () => {
-    mainWindow.reload();
+    win.reload();
   }
 
-  mainWindow.setTitle(require(`${publicPath}/config.json`).name);
+  win.setTitle(require(`${publicPath}/config.json`).name);
 
-  // mainWindow.isAlwaysOnTop()
+  // win.isAlwaysOnTop()
 
-  // mainWindow.setPosition(x, y[, animate])
+  // win.setPosition(x, y[, animate])
 
-  // console.log(mainWindow.getPosition())
+  // console.log(win.getPosition())
 
-  // mainWindow.setAspectRatio(1)
+  // win.setAspectRatio(1)
 
-  // mainWindow.setIgnoreMouseEvents(true)
+  // win.setIgnoreMouseEvents(true)
 
-  // mainWindow.setFullScreen(true);
-  // mainWindow.maximize();
+  // win.setFullScreen(true);
+  // win.maximize();
 
-  mainWindow.setAutoHideMenuBar(true)
+  win.setAutoHideMenuBar(true)
 
-  mainWindow.setMenuBarVisibility(false)
+  win.setMenuBarVisibility(false)
 
-  if(isDev) {
-    mainWindow.loadURL('http://localhost:8081/index.html');
-    // mainWindow.webContents.openDevTools();
+  globalShortcut.register('F5', reloadWindow);
+  globalShortcut.register('CommandOrControl+R', reloadWindow);
+
+  if(isDevMode) {
+    win.loadURL('http://localhost:8081/index.html');
+    // win.webContents.openDevTools();
   }
   else {
-    // mainWindow.loadURL(`file://${distPath}/index.html`);
-    mainWindow.loadFile(`${distPath}/index.html`);
+    // win.loadURL(`file://${distPath}/index.html`);
+    win.loadFile(`${distPath}/index.html`);
   }
 
-  mainWindow.on('show', (e) => {
+  win.on('show', (e) => {
     setTimeout(reloadWindow, 1500)
   });
 
   // @TODO: Use 'ready-to-show' event
   // https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
-  mainWindow.webContents.on('did-finish-load', () => {
-    // mainWindow.webContents.send('set-socket', {
+  win.webContents.on('did-finish-load', () => {
+    // win.webContents.send('set-socket', {
     //   name: serverSocket,
     // })
-    if (!mainWindow) {
-      throw new Error('"mainWindow" is not defined');
+    if (!win) {
+      throw new Error('"win" is not defined');
     }
     if (process.env.START_MINIMIZED) {
-      mainWindow.minimize();
+      win.minimize();
     } else {
-      mainWindow.show();
-      mainWindow.focus();
+      win.show();
+      win.focus();
     }
   });
 
-  mainWindow.on('page-title-updated', (e) => {
+  win.on('page-title-updated', (e) => {
     e.preventDefault()
   });
 
-  globalShortcut.register('F5', reloadWindow);
-  globalShortcut.register('CommandOrControl+R', reloadWindow);
-
-  mainWindow.on('closed', () => {
-    mainWindow.removeAllListeners();
-    mainWindow = null;
+  win.on('closed', () => {
+    win.removeAllListeners();
+    win = null;
   });
 }
+
+export default createWindow;

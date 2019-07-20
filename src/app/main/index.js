@@ -1,15 +1,17 @@
 import { app, globalShortcut } from 'electron';
 
-let mainWindow = null;
+import { pkg, windows, distPath, rootPath } from './options';
+
+import createWindow from './createWindow';
 
 app.commandLine.appendSwitch('disable-web-security');
 app.commandLine.appendSwitch('web-security');
 app.commandLine.appendSwitch('allow-displaying-insecure-content');
 app.commandLine.appendSwitch('ignore-certificate-errors');
 
-app.setName(require(`${rootPath}/public/config.json`).name);
+app.setName(pkg.name);
 
-app.on('ready', createWindow(mainWindow));
+app.on('ready', createWindow(windows.main));
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -20,9 +22,3 @@ app.on('window-all-closed', () => {
 app.on('will-quit', function () {
   globalShortcut.unregisterAll()
 })
-
-// app.on('activate', () => {
-//   if (mainWindow === null) {
-//     createWindow(mainWindow)()
-//   }
-// });
