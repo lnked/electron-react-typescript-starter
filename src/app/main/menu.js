@@ -5,8 +5,7 @@ const isMac = true;
 const template = [
   // { role: 'appMenu' }
   ...(process.platform === 'darwin' ? [{
-    // label: app.getName(),
-    label: require(`${rootPath}/public/config.json`).name,
+    label: app.getName(),
     submenu: [
       { role: 'about' },
       { type: 'separator' },

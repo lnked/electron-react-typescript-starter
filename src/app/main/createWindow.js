@@ -74,6 +74,10 @@ const createWindow = mainWindow => async () => {
     }
   });
 
+  mainWindow.on('page-title-updated', (e) => {
+    e.preventDefault()
+  });
+
   mainWindow.on('closed', () => {
     mainWindow.removeAllListeners();
     mainWindow = null;
