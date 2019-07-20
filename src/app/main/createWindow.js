@@ -1,19 +1,14 @@
 import { BrowserWindow, globalShortcut } from 'electron';
-// import installExtension, { MOBX_DEVTOOLS, REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer'
 
 import { config, isDevMode, distPath, publicPath, browserConfig } from './options';
-import './menu';
+import installExtensions from './installExtensions';
 
 // https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetpositionx-y-animate
 // https://xwartz.gitbooks.io/electron-gitbook/content/en/api/browser-window.html
 
 const createWindow = win => async () => {
   if (isDevMode) {
-    const {
-      default: installExtension, MOBX_DEVTOOLS, REACT_DEVELOPER_TOOLS
-    } = require('electron-devtools-installer');
-
-    await installExtension([MOBX_DEVTOOLS, REACT_DEVELOPER_TOOLS]);
+    await installExtensions()
   }
 
   win = new BrowserWindow(browserConfig);
@@ -59,6 +54,7 @@ const createWindow = win => async () => {
     if (!win) {
       throw new Error('"win" is not defined');
     }
+
     if (process.env.START_MINIMIZED) {
       win.minimize();
     } else {
