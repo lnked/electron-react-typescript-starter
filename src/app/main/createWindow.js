@@ -1,16 +1,30 @@
-import { BrowserWindow } from 'electron';
 import isDev from 'electron-is-dev';
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer'
+import { BrowserWindow } from 'electron';
 
-const createWindow = clientWin => async () => {
+const rootPath = process.cwd();
+const publicPath = `${rootPath}/dist`
+
+// https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetpositionx-y-animate
+
+const createWindow = mainWindow => async () => {
   if(isDev) {
     await installExtension(REACT_DEVELOPER_TOOLS);
   }
 
-  clientWin = new BrowserWindow({
-    show: false,
-    width: 1024,
-    height: 728,
+  mainWindow = new BrowserWindow({
+    // show: false,
+    frame: false,
+    // width: 1024,
+    // height: 728,
+    width: 480,
+    height: 480,
+    resizable: true,
+    alwaysOnTop: true,
+    // fullscreen: true,
+    // transparent: true,
+    // titleBarStyle: 'hidden',
+    // titleBarStyle: 'hiddenInset',
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -18,36 +32,50 @@ const createWindow = clientWin => async () => {
     },
   });
 
+  mainWindow.setTitle(require(`${rootPath}/public/config.json`).name);
+
+  // mainWindow.isAlwaysOnTop()
+
+  // mainWindow.setPosition(x, y[, animate])
+
+  // console.log(mainWindow.getPosition())
+
+  // mainWindow.setAspectRatio(1)
+
+  // mainWindow.setIgnoreMouseEvents(true)
+
+  mainWindow.setAutoHideMenuBar(true)
+
+  mainWindow.setMenuBarVisibility(false)
+
   if(isDev) {
-    clientWin.loadURL('http://localhost:8081/index.html');
-    clientWin.webContents.openDevTools();
+    mainWindow.loadURL('http://localhost:8081/index.html');
+    // mainWindow.webContents.openDevTools();
   }
   else {
-    // clientWin.loadURL(`file://${publicPath}/index.html`);
-    clientWin.loadFile(`${publicPath}/index.html`);
+    // mainWindow.loadURL(`file://${publicPath}/index.html`);
+    mainWindow.loadFile(`${publicPath}/index.html`);
   }
 
   // @TODO: Use 'ready-to-show' event
   // https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
-  clientWin.webContents.on('did-finish-load', () => {
-    // clientWin.webContents.send('set-socket', {
+  mainWindow.webContents.on('did-finish-load', () => {
+    // mainWindow.webContents.send('set-socket', {
     //   name: serverSocket,
     // })
-    if (!clientWin) {
-      throw new Error('"clientWin" is not defined');
+    if (!mainWindow) {
+      throw new Error('"mainWindow" is not defined');
     }
     if (process.env.START_MINIMIZED) {
-      clientWin.minimize();
+      mainWindow.minimize();
     } else {
-      clientWin.show();
-      clientWin.focus();
+      mainWindow.show();
+      mainWindow.focus();
     }
   });
 
-  clientWin.on('closed', () => {
-    clientWin.removeAllListeners();
-    clientWin = null;
+  mainWindow.on('closed', () => {
+    mainWindow.removeAllListeners();
+    mainWindow = null;
   });
 }
-
-export default createWindow;

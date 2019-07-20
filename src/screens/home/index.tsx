@@ -1,10 +1,12 @@
 import * as React from 'react';
 
+import { Layout } from './styled';
+
 const Home = () => {
   return (
-    <div>
+    <Layout>
       Home
-    </div>
+    </Layout>
   );
 };
 

@@ -28,8 +28,8 @@ const noParse = {
   '@helpers': resolve(sourcePath, 'helpers'),
   '@services': resolve(sourcePath, 'services'),
   '@settings': resolve(sourcePath, 'settings'),
-  '@navigators': resolve(sourcePath, 'navigators'),
   '@components': resolve(sourcePath, 'components'),
+  '@navigations': resolve(sourcePath, 'navigations'),
 };
 
 module.exports = {

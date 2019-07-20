@@ -31,7 +31,6 @@
     "typeRoots": ["node_modules/@types", "typings/*"]
   },
   "paths": {
-    "*": ["/*"],
     "@app/*": "./app/*",
     "@i18n/*": "./i18n/*",
     "@core/*": "./core/*",
@@ -43,8 +42,8 @@
     "@helpers/*": "./helpers/*",
     "@services/*": "./services/*",
     "@settings/*": "./settings/*",
-    "@navigators/*": "./navigators/*",
     "@components/*": "./components/*",
+    "@navigations/*": "./navigations/*",
   },
   "include": ["./**/*"],
   "exclude": ["node_modules", "configs", "dist", "**/node_modules/*", "./**/*.test.tsx", "./**/*.spec.tsx"]
