@@ -27,7 +27,7 @@ export const browserConfig = {
   // titleBarStyle: 'hidden',
   fullscreenable: false,
   // titleBarStyle: 'hiddenInset',
-  icon: `${distPath}/icons/png/64x64.png`,
+  icon: `${publicPath}/icons/mac/app.icns`,
   webPreferences: {
     nodeIntegration: false,
     contextIsolation: true,
@@ -36,5 +36,4 @@ export const browserConfig = {
   },
 };
 
-export const pkg = require(`${rootPath}/package.json`);
-// export const config = require(`${distPath}/config.json`);
+export const config = require(`${publicPath}/config.json`);

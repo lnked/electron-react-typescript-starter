@@ -1,7 +1,7 @@
 import { BrowserWindow, globalShortcut } from 'electron';
 // import installExtension, { MOBX_DEVTOOLS, REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer'
 
-import { isDevMode, distPath, publicPath, browserConfig } from './options';
+import { config, isDevMode, distPath, publicPath, browserConfig } from './options';
 import './menu';
 
 // https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetpositionx-y-animate
@@ -22,24 +22,17 @@ const createWindow = win => async () => {
     win.reload();
   }
 
-  win.setTitle(require(`${publicPath}/config.json`).name);
+  win.setTitle(config.name);
 
   // win.isAlwaysOnTop()
-
   // win.setPosition(x, y[, animate])
-
   // console.log(win.getPosition())
-
-  // win.setAspectRatio(1)
-
-  // win.setIgnoreMouseEvents(true)
-
-  // win.setFullScreen(true);
   // win.maximize();
-
-  win.setAutoHideMenuBar(true)
-
-  win.setMenuBarVisibility(false)
+  // win.setAspectRatio(1)
+  // win.setFullScreen(true);
+  // win.setAutoHideMenuBar(true)
+  // win.setIgnoreMouseEvents(true)
+  // win.setMenuBarVisibility(false)
 
   globalShortcut.register('F5', reloadWindow);
   globalShortcut.register('CommandOrControl+R', reloadWindow);
