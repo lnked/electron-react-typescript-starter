@@ -1,7 +1,7 @@
 import { BrowserWindow, globalShortcut } from 'electron';
 // import installExtension, { MOBX_DEVTOOLS, REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer'
 
-import { isDevMode, distPath, publicPath } from './options';
+import { isDevMode, distPath, publicPath, browserConfig } from './options';
 import './menu';
 
 // https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetpositionx-y-animate
@@ -16,29 +16,7 @@ const createWindow = win => async () => {
     await installExtension([MOBX_DEVTOOLS, REACT_DEVELOPER_TOOLS]);
   }
 
-  win = new BrowserWindow({
-    // show: false,
-    frame: false,
-    // width: 1024,
-    // height: 728,
-    width: 480,
-    height: 480,
-    resizable: true,
-    alwaysOnTop: true,
-    preloadWindow: true,
-    windowPosition: 'topRight',
-    backgroundColor: '#eee',
-    icon: `${distPath}/icons/png/64x64.png`,
-    // fullscreen: true,
-    transparent: true,
-    // titleBarStyle: 'hidden',
-    // titleBarStyle: 'hiddenInset',
-    webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
-      preload: `${distPath}/preload.js`,
-    },
-  });
+  win = new BrowserWindow(browserConfig);
 
   const reloadWindow = () => {
     win.reload();
