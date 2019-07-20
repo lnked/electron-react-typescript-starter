@@ -1,4 +1,4 @@
-import { app } from 'electron';
+import { app, globalShortcut } from 'electron';
 
 let mainWindow = null;
 
@@ -16,6 +16,10 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 });
+
+app.on('will-quit', function () {
+  globalShortcut.unregisterAll()
+})
 
 // app.on('activate', () => {
 //   if (mainWindow === null) {

@@ -1,6 +1,6 @@
 const { app, Menu } = require('electron')
 
-const isMac = true;
+const isMac = /darwin/.test(process.platform);
 
 const template = [
   // { role: 'appMenu' }

@@ -25,6 +25,7 @@
     "typecheck": "tsc",
     "pretest": "cross-env NODE_ENV=test yarn lint",
     "test": "jest",
+    "release": "electron-builder --dir",
     "test:watch": "yarn test -- --watch",
     "ci": "yarn test & yarn typecheck & yarn lint",
     "add-component": "node configs/utils/add --essence component",
@@ -74,6 +75,7 @@
     "css-loader": "3.1.0",
     "dotenv": "8.0.0",
     "electron": "5.0.7",
+    "electron-builder": "21.1.1",
     "electron-devtools-installer": "2.2.4",
     "enzyme": "3.10.0",
     "enzyme-adapter-react-16": "1.14.0",
@@ -137,10 +139,7 @@
     "productName": "ElectronReact",
     "appId": "org.develar.ElectronReact",
     "files": [
-      "app/dist/",
-      "app/app.html",
-      "app/main.prod.js",
-      "app/main.prod.js.map",
+      "dist/",
       "package.json"
     ],
     "dmg": {

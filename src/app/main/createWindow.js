@@ -23,6 +23,8 @@ const createWindow = mainWindow => async () => {
     height: 480,
     resizable: true,
     alwaysOnTop: true,
+    preloadWindow: true,
+    windowPosition: 'topRight',
     backgroundColor: '#eee',
     icon: `${distPath}/icons/png/64x64.png`,
     // fullscreen: true,
@@ -97,9 +99,6 @@ const createWindow = mainWindow => async () => {
   globalShortcut.register('CommandOrControl+R', reloadWindow);
 
   mainWindow.on('closed', () => {
-    globalShortcut.unregister('F5', reloadWindow);
-    globalShortcut.unregister('CommandOrControl+R', reloadWindow);
-
     mainWindow.removeAllListeners();
     mainWindow = null;
   });
