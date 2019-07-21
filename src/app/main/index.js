@@ -1,8 +1,10 @@
 import { app, globalShortcut } from 'electron';
 
 import { config, windows } from './options';
+import createMenu from './createMenu';
 import createWindow from './createWindow';
-import './menu';
+
+createMenu()
 
 app.commandLine.appendSwitch('disable-web-security');
 app.commandLine.appendSwitch('web-security');
