@@ -13,10 +13,8 @@ export const windows = {
 };
 
 export const browserConfig = {
-  // width: 1024,
-  // height: 728,
-  width: 480,
-  height: 480,
+  width: 1024,
+  height: 728,
   show: false,
   frame: false,
   resizable: true,

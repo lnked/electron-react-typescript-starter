@@ -11,7 +11,12 @@ app.commandLine.appendSwitch('ignore-certificate-errors');
 
 app.setName(config.name);
 
-app.on('ready', createWindow(windows.main));
+app.on('ready', createWindow({
+  win: windows.main,
+  options: {
+    ...config.windows.main,
+  },
+}));
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -22,3 +27,23 @@ app.on('window-all-closed', () => {
 app.on('will-quit', function () {
   globalShortcut.unregisterAll()
 })
+
+// https://canonium.com/articles/electron-desktop-app-introduction
+
+// app-darwin-x64
+// app-linux-ia32
+// app-linux-x64
+// app-win32-ia32
+// app-win32-x64
+
+// Lifecycle
+// will-finish-launching
+// ready
+// browser-window-created
+// page-title-updated
+// close
+// before-quit
+// will-quit
+// quit
+// window-all-closed
+// closed

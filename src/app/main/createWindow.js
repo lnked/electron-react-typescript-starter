@@ -3,8 +3,11 @@ import { BrowserWindow, globalShortcut } from 'electron';
 import { config, isDevMode, environment, browserConfig } from './options';
 import installExtensions from './installExtensions';
 
-const createWindow = win => async () => {
-  win = new BrowserWindow(browserConfig);
+const createWindow = ({ win, options }) => async () => {
+  win = new BrowserWindow({
+    ...browserConfig,
+    ...options,
+  });
 
   const reloadWindow = () => {
     win.reload();

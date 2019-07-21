@@ -1,7 +1,8 @@
 {
   "name": "electron-react-typescript-starter",
-  "version": "1.0.1",
+  "productName": "ReactApp",
   "main": "dist/main.js",
+  "version": "1.0.1",
   "author": "Edik Bulikyan <ed.proff@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -17,7 +18,9 @@
     "react:build": "webpack --config configs/webpack --env production",
     "analyze": "yarn clear:cache && yarn build --analyze",
     "start": "concurrently -p -c -k -r 'yarn:electron' 'yarn:react:start'",
-    "build": "electron-builder --dir",
+    "build:mac": "electron-builder ./dist",
+    "build:win": "electron-builder ./dist --win --x64",
+    "build:linux": "electron-builder ./dist --linux",
     "snapshots": "node configs/snapshots",
     "lint": "tslint -t stylish -p tsconfig.json 'src/**/*.ts?(x)'",
     "lint:fix": "yarn lint --fix",
@@ -145,50 +148,81 @@
     "uuid": "3.3.2"
   },
   "build": {
-    "productName": "Example App",
-    "appId": "org.lnked.ElectronReact",
+    "appId": "com.electron.lnked.${name}",
+    "productName": "ReactApp",
+    "directories": {
+      "buildResources": "dist",
+      "output": "release"
+    },
     "files": [
-      "dist/",
-      "package.json"
+      "./dist/**/*"
     ],
-    "dmg": {
-      "contents": [
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
         {
-          "x": 130,
-          "y": 220
+          "target": "dmg",
+          "arch": [
+            "x64"
+          ]
         },
         {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
         }
-      ]
+      ],
+      "icon": "./dist/icons/mac/app.icns",
+      "identity": null
+    },
+    "dmg": {
+      "background": "./dist/icons/png/1024x1024.png",
+      "icon": "./dist/icons/mac/app.icns",
+      "title": "${productName}"
     },
     "win": {
       "target": [
-        "nsis",
-        "msi"
-      ]
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "./dist/icons/win/app.ico"
+    },
+    "nsis": {
+      "installerIcon": "./dist/icons/win/app.ico",
+      "uninstallerIcon": "./dist/icons/win/app.ico",
+      "installerHeaderIcon": "./dist/icons/win/app.ico",
+      "deleteAppDataOnUninstall": true
     },
     "linux": {
       "target": [
-        "deb",
-        "rpm",
-        "snap",
-        "AppImage"
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
       ],
-      "category": "Development"
+      "icon": "./dist/icons/png/512x512.png",
+      "synopsis": "Project Synopsis",
+      "category": "Utility"
     },
-    "directories": {
-      "buildResources": "resources",
-      "output": "release"
-    },
-    "publish": {
-      "provider": "github",
-      "owner": "electron-react-typescript-starter",
-      "repo": "electron-react-typescript-starter",
-      "private": false
+    "appImage": {
+      "synopsis": "Project Synopsis",
+      "category": "Utility"
     }
   }
 }

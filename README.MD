@@ -2,7 +2,7 @@
 
 ---
 
-# electron-react-typescript-starter
+# Electron react typescript starter
 
 ## Installation
 

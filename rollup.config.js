@@ -9,7 +9,7 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import includePaths from 'rollup-plugin-includepaths';
 import { terser } from 'rollup-plugin-terser';
 
-const environment = Object.assign({}, process.env, dotenv.config().parsed, {
+const environment = Object.assign({}, dotenv.config().parsed, {
   NODE_ENV: JSON.stringify('production'),
 });
 
