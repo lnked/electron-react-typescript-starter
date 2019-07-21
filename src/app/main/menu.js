@@ -1,11 +1,11 @@
 import { app, Menu } from 'electron';
 
-import { isMac } from './options';
+import { config, isMac } from './options';
 
 const template = [
   // { role: 'appMenu' }
   ...(process.platform === 'darwin' ? [{
-    label: app.getName(),
+    label: config.name,
     submenu: [
       { role: 'about' },
       { type: 'separator' },
@@ -60,6 +60,7 @@ const template = [
     submenu: [
       { role: 'reload' },
       { role: 'forcereload' },
+      // TODO: only if config.devTools is true
       { role: 'toggledevtools' },
       { type: 'separator' },
       // { role: 'resetzoom' },

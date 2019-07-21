@@ -1,6 +1,6 @@
 import { app, globalShortcut } from 'electron';
 
-import { config, windows, distPath, rootPath } from './options';
+import { config, windows } from './options';
 import createWindow from './createWindow';
 import './menu';
 

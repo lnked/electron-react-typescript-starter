@@ -4,10 +4,10 @@ const options = require('../options');
 
 module.exports = {
   output: {
+    path: options.dist,
     pathinfo: false,
     jsonpFunction: 'WJ',
     hotUpdateFunction: 'UF',
-    path: resolve(options.root, 'dist'),
     filename: `static/${options.hashName}.m.js`,
     publicPath: options.publicPath,
     chunkFilename: `static/${options.hashName}.c.js`,

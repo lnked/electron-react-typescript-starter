@@ -1,10 +1,12 @@
 import isDev from 'electron-is-dev';
+import appConfig from 'appConfig';
 
-export const isMac = /darwin/.test(process.platform);
-export const rootPath = process.cwd();
-export const distPath = `${rootPath}/dist`;
-export const publicPath = `${rootPath}/public`;
 export const isDevMode = isDev;
+export const isMac = /darwin/.test(process.platform);
+
+export const config = appConfig;
+
+export const environment = process.env;
 
 export const windows = {
   main: null,
@@ -27,13 +29,11 @@ export const browserConfig = {
   // titleBarStyle: 'hidden',
   fullscreenable: false,
   // titleBarStyle: 'hiddenInset',
-  icon: `${publicPath}/icons/mac/app.icns`,
+  icon: `file://${__dirname}/icons/mac/app.icns`,
   webPreferences: {
     nodeIntegration: false,
     contextIsolation: true,
     backgroundThrottling: false,
-    preload: `${distPath}/preload.js`,
+    preload: './dist/preload.js',
   },
 };
-
-export const config = require(`${publicPath}/config.json`);
