@@ -1,20 +1,54 @@
-```json
-"lint": "tslint -c ./tslint.json -p . --exclude '**/*.js'",
-"release": "BABEL_ENV=production yarn compile && ./npm-publish.sh && conventional-changelog -p angular -i CHANGELOG.md -s",
-"test": "yarn compile && yarn lint && jest",
-"build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
-"build-dll": "cross-env NODE_ENV=development webpack --config ./configs/webpack.config.renderer.dev.dll.babel.js --colors",
-"build-e2e": "cross-env E2E_BUILD=true yarn build",
-"build-main2": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.main.prod.babel.js --colors",
-"build-renderer": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.renderer.prod.babel.js --colors",
-"package": "yarn build && electron-builder build --publish never",
-"package-all": "yarn build && electron-builder build -mwl",
-"package-ci": "yarn postinstall && yarn build && electron-builder --publish always",
-"package-linux": "yarn build && electron-builder build --linux",
-"package-win": "yarn build && electron-builder build --win --x64",
-"postinstall2": "yarn flow-typed && electron-builder install-app-deps package.json && yarn build-dll && opencollective-postinstall",
-"postlint-fix": "prettier --ignore-path .eslintignore --single-quote --write '**/*.{js,jsx,json,html,css,less,scss,yml}'",
-"postlint-styles-fix": "prettier --ignore-path .eslintignore --single-quote --write '**/*.{css,scss}'",
-"dev": "cross-env START_HOT=1 node -r @babel/register ./internals/scripts/CheckPortInUse.js && cross-env START_HOT=1 yarn start-renderer-dev",
-"start-main-dev": "cross-env HOT=1 NODE_ENV=development electron -r @babel/register ./app/main.dev.js"
+[![license](https://img.shields.io/github/license/lnked/electron-react-typescript-starter.svg)](git@github.com:lnked/electron-react-typescript-starter/blob/master/LICENSE)
+
+---
+
+# electron-react-typescript-starter
+
+## Installation
+
+#### GIT
+
+```bash
+# Create project folder
+mkdir app
+
+# Go to the project root
+cd app
+
+# Clone the repository (stable branch)
+git clone -b master git@github.com:lnked/electron-react-typescript-starter.git .
+
+# OR download the latest release at: git@github.com:lnked/electron-react-typescript-starter/releases/latest
+```
+
+OR
+
+```bash
+git init
+git remote add origin git@github.com:lnked/electron-react-typescript-starter.git
+git fetch origin
+git pull origin master
+```
+
+```bash
+# Install
+yarn
+# or
+npm i
+```
+
+## Run tasks
+
+```
+# Start a development server
+yarn start
+
+# Build apps
+yarn build
+
+# Lint
+yarn lint
+
+# Lint fix
+yarn lint:fix
 ```
