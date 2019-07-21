@@ -11,7 +11,7 @@
     "main": "rollup src/app/main -c --file dist/main.js",
     "preload": "rollup src/app/preload -c --file dist/preload.js",
     "prestart": "cross-env NODE_ENV=development yarn preload && yarn main",
-    "prebuild": "cross-env NODE_ENV=production yarn clear:dist && yarn preload && yarn main && yarn react:build",
+    "prebuild": "cross-env NODE_ENV=production yarn clear:dist && yarn react:build && yarn preload && yarn main",
     "electron": "electron dist/main.js",
     "react:start": "webpack-dev-server --config configs/webpack --env development",
     "react:build": "webpack --config configs/webpack --env production",
