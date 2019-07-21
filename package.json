@@ -145,8 +145,8 @@
     "uuid": "3.3.2"
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "Example App",
+    "appId": "org.lnked.ElectronReact",
     "files": [
       "dist/",
       "package.json"
@@ -186,8 +186,8 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate",
+      "owner": "electron-react-typescript-starter",
+      "repo": "electron-react-typescript-starter",
       "private": false
     }
   }
