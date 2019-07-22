@@ -1,8 +1,7 @@
-import isDev from 'electron-is-dev';
 import appConfig from 'appConfig';
 
-export const isDevMode = isDev;
 export const isMac = /darwin/.test(process.platform);
+export const isDevMode = (process.env.NODE_ENV === 'development');
 
 export const config = appConfig;
 

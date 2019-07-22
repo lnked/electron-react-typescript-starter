@@ -18,6 +18,12 @@ const createWindow = ({ win, options }) => async () => {
   globalShortcut.register('F5', reloadWindow);
   globalShortcut.register('CommandOrControl+R', reloadWindow);
 
+  // if (isDevMode) {
+  //   win.loadURL('http://localhost:3002/index.html');
+  // } else {
+  //   win.loadURL(`file://${__dirname}/index.html`);
+  // }
+
   win.loadURL(`file://${__dirname}/index.html`);
 
   if(isDevMode && config.devTools) {
@@ -42,6 +48,8 @@ const createWindow = ({ win, options }) => async () => {
       win.show();
       win.focus();
     }
+
+    // isDevMode && setTimeout(reloadWindow, 1000);
   });
 
   // win.webContents.on('did-finish-load', () => {});

@@ -1,12 +1,14 @@
 const appName = 'ReactApp';
 const isMac = /darwin/.test(process.platform);
+const environment = process.env.NODE_ENV || 'development';
+const development = environment === 'development';
 
 module.exports = {
   name: appName,
-  devTools: false,
+  devTools: development,
   windows: {
     main: {
-      width: 480,
+      width: 480 + (development ? 500 : 0),
       height: 480,
     },
   },

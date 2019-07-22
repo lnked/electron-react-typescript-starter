@@ -2,7 +2,7 @@ const options = require('../options');
 
 module.exports = options.development && {
   devServer: {
-    port: 8081,
+    port: 3002,
     hot: true,
     open: false,
     inline: true,

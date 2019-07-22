@@ -5,16 +5,17 @@
   "version": "1.0.1",
   "author": "Edik Bulikyan <ed.proff@gmail.com>",
   "license": "MIT",
+  "description": "Electron react boilerplate",
   "scripts": {
     "clear:dist": "rimraf -rf ./dist/*",
     "clear:cache": "rimraf -rf ./.cache/*",
     "main": "rollup src/app/main -c --file dist/main.js",
-    "preload": "rollup src/app/preload -c --file dist/preload.js",
-    "prestart": "cross-env NODE_ENV=development yarn preload && yarn main",
-    "prebuild": "cross-env NODE_ENV=production yarn clear:dist && yarn react:build && yarn preload && yarn main",
+    "preload": "rollup src/app/preload -c --file dist/preload.js --environment production",
+    "prestart": "yarn preload && yarn main --environment development",
+    "prebuild": "yarn clear:dist && yarn react:build && yarn preload && yarn main --environment production",
     "electron": "electron dist/main.js",
-    "react:start": "webpack-dev-server --config configs/webpack --env development",
-    "react:build": "webpack --config configs/webpack --env production",
+    "react:start": "cross-env NODE_ENV=development webpack-dev-server --config configs/webpack --env development",
+    "react:build": "cross-env NODE_ENV=production webpack --config configs/webpack --env production",
     "analyze": "yarn clear:cache && yarn build --analyze",
     "start": "concurrently -p -c -k -r 'yarn:electron' 'yarn:react:start'",
     "build": "electron-builder ./dist",
@@ -140,7 +141,8 @@
     "webpack-cli": "3.3.6",
     "webpack-dev-server": "3.7.2",
     "webpack-merge": "4.2.1",
-    "workbox-webpack-plugin": "4.3.1"
+    "workbox-webpack-plugin": "4.3.1",
+    "yargs": "13.3.0"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "7.5.5",
@@ -148,7 +150,6 @@
     "@emotion/styled": "10.0.14",
     "@hot-loader/react-dom": "16.8.6",
     "core-js": "3",
-    "electron-is-dev": "1.1.0",
     "history": "4.9.0",
     "node-ipc": "9.1.1",
     "react": "16.8.6",
@@ -156,83 +157,5 @@
     "react-hot-loader": "4.12.8",
     "react-router-dom": "5.0.1",
     "uuid": "3.3.2"
-  },
-  "build": {
-    "appId": "com.electron.lnked.${name}",
-    "productName": "ReactApp",
-    "directories": {
-      "buildResources": "dist",
-      "output": "release"
-    },
-    "files": [
-      "./dist/**/*"
-    ],
-    "mac": {
-      "category": "public.app-category.utilities",
-      "target": [
-        {
-          "target": "dmg",
-          "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "zip",
-          "arch": [
-            "x64"
-          ]
-        }
-      ],
-      "icon": "./dist/icons/mac/app.icns",
-      "identity": null
-    },
-    "dmg": {
-      "background": "./dist/icons/png/1024x1024.png",
-      "icon": "./dist/icons/mac/app.icns",
-      "title": "${productName}"
-    },
-    "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        },
-        {
-          "target": "portable",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ],
-      "icon": "./dist/icons/win/app.ico"
-    },
-    "nsis": {
-      "installerIcon": "./dist/icons/win/app.ico",
-      "uninstallerIcon": "./dist/icons/win/app.ico",
-      "installerHeaderIcon": "./dist/icons/win/app.ico",
-      "deleteAppDataOnUninstall": true
-    },
-    "linux": {
-      "target": [
-        {
-          "target": "AppImage",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ],
-      "icon": "./dist/icons/png/512x512.png",
-      "synopsis": "Project Synopsis",
-      "category": "Utility"
-    },
-    "appImage": {
-      "synopsis": "Project Synopsis",
-      "category": "Utility"
-    }
   }
 }

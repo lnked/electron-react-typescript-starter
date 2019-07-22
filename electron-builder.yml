@@ -1,0 +1,70 @@
+appId: 'com.electron.lnked.${name}'
+productName: ReactApp
+artifactName: '${productName}-${version}-${platform}.${ext}'
+asar: false
+
+directories:
+  output: release
+  buildResources: dist
+
+electronVersion: 5.0.7
+
+files:
+  - dist/**/*
+
+mac:
+  category: public.app-category.utilities
+  icon: dist/icons/mac/app.icns
+  identity: null
+  target:
+    - target: dmg
+      arch:
+        - x64
+    - target: zip
+      arch:
+        - x64
+
+dmg:
+  title: '${productName}'
+  background: dist/icons/png/1024x1024.png
+  icon: dist/icons/mac/app.icns
+  iconSize: 128
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - ia32
+    - target: portable
+      arch:
+        - x64
+        - ia32
+  icon: dist/icons/win/app.ico
+
+nsis:
+  oneClick: false
+  perMachine: true
+  menuCategory: true
+  runAfterFinish: false
+  deleteAppDataOnUninstall: true
+  installerIcon: dist/icons/win/app.ico
+  uninstallerIcon: dist/icons/win/app.ico
+  installerHeaderIcon: dist/icons/win/app.ico
+  # installerSidebar: dist/icons/png/1024x1024.png
+  # uninstallerSidebar: dist/icons/png/1024x1024.png
+  allowToChangeInstallationDirectory: true
+
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+        - ia32
+  icon: dist/icons/png/512x512.png
+  synopsis: Project Synopsis
+  category: Utility
+
+appImage:
+  synopsis: Project Synopsis
+  category: Utility

@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import { argv } from 'yargs';
 
 import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
@@ -10,7 +11,7 @@ import includePaths from 'rollup-plugin-includepaths';
 import { terser } from 'rollup-plugin-terser';
 
 const environment = Object.assign({}, dotenv.config().parsed, {
-  NODE_ENV: JSON.stringify('production'),
+  NODE_ENV: (argv.environment || 'development'),
 });
 
 export default {
