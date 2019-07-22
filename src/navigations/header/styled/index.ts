@@ -4,8 +4,9 @@ import { NavLink } from 'react-router-dom';
 export const Navigation = styled.nav`
   -webkit-app-region: drag;
   cursor: move;
+  height: 48px;
   padding: 15px 20px;
-  background-color: #3333f3;
+  background-color: #526473;
   display: flex;
   align-items: center;
   justify-content: space-between;

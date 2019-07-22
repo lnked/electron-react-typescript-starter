@@ -27,7 +27,7 @@ const createWindow = ({ win, options }) => async () => {
   win.loadURL(`file://${__dirname}/index.html`);
 
   if(isDevMode && config.devTools) {
-    await installExtensions()
+    // await installExtensions()
     win.webContents.openDevTools();
   }
 

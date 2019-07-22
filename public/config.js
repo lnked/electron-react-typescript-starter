@@ -8,8 +8,19 @@ module.exports = {
   devTools: development,
   windows: {
     main: {
-      width: 480 + (development ? 500 : 0),
-      height: 480,
+      width: 860,
+      height: 560,
+      show: false,
+      frame: false,
+      resizable: false,
+      alwaysOnTop: false,
+      transparent: false,
+      // fullscreen: true,
+      // titleBarStyle: 'hidden',
+      // fullscreenable: false,
+      // titleBarStyle: 'hiddenInset',
+      backgroundColor: '#eee',
+      windowPosition: 'bottomRight',
     },
   },
   menu: [

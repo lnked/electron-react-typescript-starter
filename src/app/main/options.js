@@ -14,18 +14,8 @@ export const windows = {
 export const browserConfig = {
   width: 1024,
   height: 728,
-  show: false,
-  frame: false,
   resizable: true,
-  alwaysOnTop: true,
   preloadWindow: true,
-  windowPosition: 'topRight',
-  backgroundColor: '#eee',
-  // fullscreen: true,
-  transparent: false,
-  // titleBarStyle: 'hidden',
-  fullscreenable: false,
-  // titleBarStyle: 'hiddenInset',
   icon: `file://${__dirname}/icons/mac/app.icns`,
   webPreferences: {
     nodeIntegration: false,
