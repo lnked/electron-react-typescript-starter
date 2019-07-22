@@ -7,7 +7,7 @@ const HeaderNavigation = () => (
   <Navigation>
     <List>
       {routes.map(({ path, name, ...extraProps }) => (
-        <ListItem>
+        <ListItem key={path}>
           <Link to={path} activeClassName="active" {...extraProps}>{name}</Link>
         </ListItem>
       ))}

@@ -4,7 +4,6 @@ artifactName: '${productName}-${version}-${platform}.${ext}'
 asar: true
 
 directories:
-  app: .
   output: release
   buildResources: dist
 
