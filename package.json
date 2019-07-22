@@ -1,6 +1,5 @@
 {
   "name": "electron-react-typescript-starter",
-  "productName": "ReactApp",
   "main": "dist/main.js",
   "version": "1.0.1",
   "author": "Edik Bulikyan <ed.proff@gmail.com>",

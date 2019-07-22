@@ -1,4 +1,4 @@
-const appName = 'ReactApp';
+const appName = 'React App';
 const isMac = /darwin/.test(process.platform);
 const environment = process.env.NODE_ENV || 'development';
 const development = environment === 'development';

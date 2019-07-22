@@ -1,9 +1,10 @@
 appId: 'com.electron.lnked.${name}'
-productName: ReactApp
+productName: React App
 artifactName: '${productName}-${version}-${platform}.${ext}'
-asar: false
+asar: true
 
 directories:
+  app: .
   output: release
   buildResources: dist
 
