@@ -1,4 +1,4 @@
-module.exports = ({ prefix = '', ...props }) => {
+module.exports = (props = {}) => {
   return {
     loader: 'style-loader',
     options: {

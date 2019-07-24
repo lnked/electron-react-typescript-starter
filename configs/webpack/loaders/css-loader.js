@@ -1,14 +1,12 @@
-const { development } = require('../options');
-
-module.exports = ({ importLoaders = 1, ...props }) => {
+module.exports = ({ importLoaders = 2, ...props }) => {
   return {
     loader: 'css-loader',
     options: {
       ...props,
       importLoaders,
-      localIdentName: development
-        ? '[path][name][local]'
-        : '[hash:base64:5]',
-    }
+      modules: {
+        mode: 'global',
+      },
+    },
   };
 }
