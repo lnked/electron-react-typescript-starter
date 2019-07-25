@@ -1,8 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
-    "outDir": "./dist",
+    "baseUrl": "src",
+    "outDir": "dist",
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -32,19 +32,7 @@
     "typeRoots": ["node_modules/@types", "typings/*"]
   },
   "paths": {
-    "@app/*": "./app/*",
-    "@i18n/*": "./i18n/*",
-    "@core/*": "./core/*",
-    "@store/*": "./store/*",
-    "@theme/*": "./theme/*",
-    "@utils/*": "./utils/*",
-    "@assets/*": "./assets/*",
-    "@screens/*": "./screens/*",
-    "@helpers/*": "./helpers/*",
-    "@services/*": "./services/*",
-    "@settings/*": "./settings/*",
-    "@components/*": "./components/*",
-    "@navigations/*": "./navigations/*",
+    "@/*": ["./*"]
   },
   "include": ["./**/*"],
   "exclude": ["node_modules", "configs", "dist", "**/node_modules/*", "./**/*.test.tsx", "./**/*.spec.tsx"]

@@ -7,7 +7,7 @@ directories:
   output: release
   buildResources: dist
 
-electronVersion: 5.0.7
+electronVersion: 5.0.8
 
 files:
   - dist/**/*

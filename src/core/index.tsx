@@ -6,22 +6,22 @@ import { createHashHistory } from 'history';
 
 const history = createHashHistory();
 
-import { Loader } from '@components';
+import { Loader } from '@/components';
 
-import { HeaderNavigation } from '@navigations';
+import { HeaderNavigation } from '@/navigations';
 
-import Home from '@screens/home';
+import Home from '@/screens/home';
 
 import GlobalStyle from './styles';
 
 export const About = React.lazy(() => import(
   /* webpackChunkName: "about" */
-  '@screens/about'
+  '@/screens/about'
 ));
 
 export const NoMatch = React.lazy(() => import(
   /* webpackChunkName: "nomatch" */
-  '@screens/nomatch'
+  '@/screens/nomatch'
 ));
 
 const App = () => (

@@ -1,7 +1,7 @@
 import { BrowserWindow, globalShortcut } from 'electron';
 
 import { config, isDevMode, environment, browserConfig } from './options';
-import installExtensions from './installExtensions';
+// import installExtensions from './installExtensions';
 
 const createWindow = ({ win, options }) => async () => {
   win = new BrowserWindow({

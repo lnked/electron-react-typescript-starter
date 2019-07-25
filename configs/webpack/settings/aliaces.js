@@ -17,23 +17,10 @@ const duplicates = {
 };
 
 const noParse = {
-  '@app': resolve(sourcePath, 'app'),
-  '@i18n': resolve(sourcePath, 'i18n'),
-  '@core': resolve(sourcePath, 'core'),
-  '@store': resolve(sourcePath, 'store'),
-  '@theme': resolve(sourcePath, 'theme'),
-  '@utils': resolve(sourcePath, 'utils'),
-  '@assets': resolve(sourcePath, 'assets'),
-  '@screens': resolve(sourcePath, 'screens'),
-  '@helpers': resolve(sourcePath, 'helpers'),
-  '@services': resolve(sourcePath, 'services'),
-  '@settings': resolve(sourcePath, 'settings'),
-  '@components': resolve(sourcePath, 'components'),
-  '@navigations': resolve(sourcePath, 'navigations'),
+  '@': sourcePath,
 };
 
 module.exports = {
   ...noParse,
   ...duplicates,
-  '@': sourcePath,
 };
