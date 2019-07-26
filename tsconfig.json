@@ -1,39 +1,31 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "src",
-    "outDir": "dist",
-    "target": "esnext",
+    "sourceMap": true,
+    "jsx": "react",
     "module": "esnext",
+    "target": "es5",
     "moduleResolution": "node",
-    "strict": true,
-    "noEmit": true,
-    "allowJs": true,
-    "importHelpers": true,
-    "skipLibCheck": true,
-    "stripInternal": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "removeComments": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
-    "noImplicitReturns": true,
-    "esModuleInterop": true,
     "strictNullChecks": true,
+    "noImplicitReturns": true,
     "noUnusedParameters": true,
-    "preserveConstEnums": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowUnreachableCode": false,
-    "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "lib": ["es6", "dom"],
-    "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
+    "allowJs": true,
+    "baseUrl": "src",
+    "outDir": "dist",
+    "lib": ["es6", "es7", "dom"],
+    "paths": {
+      "@/*": ["./*"]
+    },
     "typeRoots": ["node_modules/@types", "typings/*"]
   },
-  "paths": {
-    "@/*": ["./*"]
-  },
-  "include": ["./**/*"],
-  "exclude": ["node_modules", "configs", "dist", "**/node_modules/*", "./**/*.test.tsx", "./**/*.spec.tsx"]
+  "exclude": ["node_modules", "configs", "dist", "src/**/*.test.tsx", "src/**/*.spec.tsx"]
 }
