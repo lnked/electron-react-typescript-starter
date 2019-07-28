@@ -1,6 +1,7 @@
 module.exports = (api) => {
   api.env()
 
+  const production = api.env('production')
   const development = api.env('development')
 
   return {
@@ -9,29 +10,25 @@ module.exports = (api) => {
         debug: development,
         loose: true,
         targets: {
-          electron: '5.0.8',
           chrome: 65,
+          electron: '5.0.8',
         },
-        corejs: 3,
         modules: false,
-        useBuiltIns: 'usage',
-        shippedProposals: true,
+        useBuiltIns: false,
+        shippedProposals: false,
       }],
       ['@babel/preset-typescript'],
       ['@babel/preset-react', { development }],
-      ['@emotion/babel-preset-css-prop', {
-        autoLabel: true,
-        labelFormat: '[local]',
-        useBuiltIns: false,
-        throwIfNamespace: true,
+      ['babel-plugin-styled-components', {
+        ssr: false,
+        pure: true,
+        minify: production,
+        fileName: development,
+        displayName: development,
+        transpileTemplateLiterals: production,
       }],
     ],
     plugins: [
-      ['@babel/plugin-transform-runtime', {
-        corejs: 3,
-        helpers: false,
-        regenerator: true,
-      }],
       ['@babel/plugin-syntax-dynamic-import'],
       ['@babel/plugin-transform-spread', { loose: true }],
       ['@babel/plugin-proposal-class-properties', { loose: true }],

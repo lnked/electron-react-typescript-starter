@@ -1,8 +1,8 @@
-import { css } from '@emotion/core';
-import { colors } from '@/theme';
+import { createGlobalStyle } from 'styled-components';
+import { colors } from '@/themes';
 
 /* tslint:disable: max-line-length */
-const GlobalStyle = css`
+const GlobalStyle = createGlobalStyle`
   *,
   &:after,
   &:before {

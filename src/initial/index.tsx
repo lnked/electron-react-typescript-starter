@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import { Global } from '@emotion/core';
 import { hot } from 'react-hot-loader/root';
 import { createHashHistory } from 'history';
-
-const history = createHashHistory();
 
 import { Loader } from '@/components';
 
@@ -12,17 +9,12 @@ import { HeaderNavigation } from '@/navigations';
 
 import Home from '@/screens/home';
 
-import GlobalStyle from './styles';
+import GlobalStyle from './styled';
 
-export const About = React.lazy(() => import(
-  /* webpackChunkName: "about" */
-  '@/screens/about'
-));
+const About = React.lazy(() => import(/* webpackChunkName: "about" */ '@/screens/about'));
+const NoMatch = React.lazy(() => import(/* webpackChunkName: "nomatch" */ '@/screens/nomatch'));
 
-export const NoMatch = React.lazy(() => import(
-  /* webpackChunkName: "nomatch" */
-  '@/screens/nomatch'
-));
+const history = createHashHistory();
 
 const App = () => (
   <Router history={history}>
@@ -39,7 +31,7 @@ const App = () => (
       </Switch>
     </React.Suspense>
 
-    <Global styles={GlobalStyle} />
+    <GlobalStyle />
   </Router>
 );
 

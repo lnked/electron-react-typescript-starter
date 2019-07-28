@@ -53,7 +53,7 @@
     "align": [true, "elements", "parameters", "statements", "members"],
     "no-unused-expression": [true, "allow-fast-null-checks"],
     "no-implicit-dependencies": [true, "dev", ["@"]],
-    "no-import-side-effect": [true, { "ignore-module": "(jest-emotion|\\.html|\\.css|\\.test.tsx?)$" }],
+    "no-import-side-effect": [true, { "ignore-module": "(jest-styled-components|\\.html|\\.css|\\.test.tsx?)$" }],
     "space-in-parens": [false],
     "function-name": [true, {
       "method-regex": "^\\*?\\[?[a-zA-Z][\\w\\d\\.]*\\]?$",
