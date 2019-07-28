@@ -6,10 +6,11 @@ module.exports = (api) => {
   return {
     presets: [
       ['@babel/preset-env', {
+        debug: development,
         loose: true,
         targets: {
-          electron: '5.0.7',
-          browsers: 'last 2 versions',
+          electron: '5.0.8',
+          chrome: 65,
         },
         corejs: 3,
         modules: false,
