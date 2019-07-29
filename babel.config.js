@@ -19,7 +19,9 @@ module.exports = (api) => {
       }],
       ['@babel/preset-typescript'],
       ['@babel/preset-react', { development }],
-      ['babel-plugin-styled-components', {
+    ],
+    plugins: [
+      ['styled-components', {
         ssr: false,
         pure: true,
         minify: production,
@@ -27,8 +29,6 @@ module.exports = (api) => {
         displayName: development,
         transpileTemplateLiterals: production,
       }],
-    ],
-    plugins: [
       ['@babel/plugin-syntax-dynamic-import'],
       ['@babel/plugin-transform-spread', { loose: true }],
       ['@babel/plugin-proposal-class-properties', { loose: true }],
