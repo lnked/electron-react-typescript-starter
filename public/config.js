@@ -5,12 +5,12 @@ const development = environment === 'development';
 
 module.exports = {
   name: appName,
-  devTools: development,
-  windows: {
-    main: {
+  windows: [
+    {
+      name: 'main',
       width: 860,
       height: 560,
-      show: false,
+      show: true,
       frame: false,
       resizable: false,
       alwaysOnTop: false,
@@ -21,8 +21,24 @@ module.exports = {
       // titleBarStyle: 'hiddenInset',
       backgroundColor: '#eee',
       windowPosition: 'bottomRight',
+      devTools: development,
+      positions: [410, 100],
     },
-  },
+    {
+      name: 'sidebar',
+      width: 300,
+      height: 560,
+      show: true,
+      frame: false,
+      resizable: false,
+      alwaysOnTop: false,
+      transparent: false,
+      backgroundColor: '#f00',
+      windowPosition: 'topLeft',
+      devTools: false,
+      positions: [100, 100],
+    },
+  ],
   menu: [
     ...(isMac ? [{
       label: appName,

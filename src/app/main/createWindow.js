@@ -4,9 +4,11 @@ import { config, isDevMode, environment, browserConfig } from './options';
 // import installExtensions from './installExtensions';
 
 const createWindow = ({ win, options }) => async () => {
+  const { devTools, positions, ...restOptions } = options;
+
   win = new BrowserWindow({
     ...browserConfig,
-    ...options,
+    ...restOptions,
   });
 
   const reloadWindow = () => {
@@ -14,6 +16,7 @@ const createWindow = ({ win, options }) => async () => {
   }
 
   win.setTitle(config.name);
+  win.setPosition(...positions);
 
   globalShortcut.register('F5', reloadWindow);
   globalShortcut.register('CommandOrControl+R', reloadWindow);
@@ -26,12 +29,12 @@ const createWindow = ({ win, options }) => async () => {
 
   win.loadURL(`file://${__dirname}/index.html`);
 
-  if(isDevMode && config.devTools) {
+  if(isDevMode && devTools) {
     // await installExtensions()
     win.webContents.openDevTools();
   }
 
-  if (!config.devTools) {
+  if (!devTools) {
     win.webContents.on("devtools-opened", () => {
       win.webContents.closeDevTools();
     });

@@ -1,6 +1,6 @@
 import { app, globalShortcut } from 'electron';
 
-import { config, windows } from './options';
+import { config, instances } from './options';
 import createMenu from './createMenu';
 import createWindow from './createWindow';
 
@@ -13,12 +13,16 @@ app.commandLine.appendSwitch('ignore-certificate-errors');
 
 app.setName(config.name);
 
-app.on('ready', createWindow({
-  win: windows.main,
-  options: {
-    ...config.windows.main,
-  },
-}));
+app.on('ready', async () => {
+  config.windows.forEach(({ name, ...props }) => {
+    createWindow({
+      win: instances[name],
+      options: {
+        ...props,
+      },
+    })()
+  });
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

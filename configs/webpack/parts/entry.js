@@ -3,5 +3,9 @@ const { sourcePath } = require('../options');
 
 module.exports = {
   context: sourcePath,
-  entry: resolve(sourcePath, 'index.tsx'),
+  entry: {
+    app: [
+      'core-js', resolve(sourcePath, 'index.tsx'),
+    ],
+  },
 }

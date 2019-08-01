@@ -7,9 +7,13 @@ export const config = appConfig;
 
 export const environment = process.env;
 
-export const windows = {
-  main: null,
-};
+const instances = {};
+
+config.windows.forEach(({ name }) => {
+  instances[name] = null;
+});
+
+export { instances }
 
 export const browserConfig = {
   width: 1024,
