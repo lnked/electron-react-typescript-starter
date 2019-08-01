@@ -1,17 +1,9 @@
 module.exports = {
   root: true,
   extends: [
-    'prettier',
-    'prettier/react',
     '@react-native-community',
   ],
-  plugins: ['prettier'],
   rules: {
-    'prettier/prettier': [0, {}, {
-      'singleQuote': true,
-      'usePrettierrc': false,
-      'parser': 'flow'
-    }],
     "max-len": ["error", {"code": 100}],
     "prefer-promise-reject-errors": ["off"],
     "react/jsx-filename-extension": ["off"],
