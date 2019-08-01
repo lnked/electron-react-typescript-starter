@@ -6,8 +6,7 @@ module.exports = () => {
   return [
     new CopyWebpackPlugin([
       {
-        context: 'public',
-        from: { glob: '**/*', dot: true },
+        from: options.public,
         to: options.dist,
         force: true,
         cache: true,
@@ -15,6 +14,6 @@ module.exports = () => {
     ], {
       ignore: ['.gitkeep', '.DS_Store', 'index.html'],
       copyUnmodified: true,
-    }),
-  ]
-}
+    })
+  ];
+};
