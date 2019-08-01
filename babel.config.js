@@ -16,7 +16,7 @@ module.exports = (api) => {
         },
         corejs: 3,
         modules: false,
-        useBuiltIns: 'usage',
+        useBuiltIns: 'entry',
         shippedProposals: true,
         forceAllTransforms: true,
         ignoreBrowserslistConfig: false,
