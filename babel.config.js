@@ -10,6 +10,7 @@ module.exports = (api) => {
         debug: development,
         loose: true,
         targets: {
+          node: 'current',
           chrome: 65,
           electron: '6.0.0',
         },
@@ -17,6 +18,8 @@ module.exports = (api) => {
         modules: false,
         useBuiltIns: 'usage',
         shippedProposals: true,
+        forceAllTransforms: true,
+        ignoreBrowserslistConfig: false,
       }],
       ['@babel/preset-typescript'],
       ['@babel/preset-react', { development }],
