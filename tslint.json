@@ -48,6 +48,7 @@
     "no-shadowed-variable": false,
     "export-name": false,
     "max-line-length": [true, 120],
+    "no-empty-interface": false,
     "no-submodule-imports": false,
     "object-shorthand-properties-first": false,
     "align": [true, "elements", "parameters", "statements", "members"],

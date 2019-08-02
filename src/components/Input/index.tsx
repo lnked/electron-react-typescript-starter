@@ -4,7 +4,7 @@ import { Wrapper, Label, Field, Title } from './styled';
 
 export interface OuterProps {}
 
-const Input: React.FC<OuterProps> = ({ ...props } = {}) => {
+const Input: React.FC<OuterProps> = ({ ...props }) => {
   const forwardRef = React.createRef<HTMLInputElement>();
 
   return (

@@ -12,7 +12,7 @@ const Radio: React.FC<OuterProps> = ({ value, onChange, ...props }) => {
 
   const hangelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(e, value.toString());
-  }
+  };
 
   return (
     <Field {...props} value={value} onChange={hangelChange} type="radio" ref={forwardRef} />
