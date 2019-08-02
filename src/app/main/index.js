@@ -30,7 +30,7 @@ app.on('window-all-closed', () => {
   }
 });
 
-app.on('will-quit', function () {
+app.on('will-quit', () => {
   globalShortcut.unregisterAll()
 })
 
