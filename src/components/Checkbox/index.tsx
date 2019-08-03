@@ -4,7 +4,7 @@ import { Field } from './styled';
 
 export interface OuterProps {}
 
-const Checkbox: React.FC<OuterProps> = ({ ...props } = {}) => {
+const Checkbox: React.FC<OuterProps> = ({ ...props }) => {
   const forwardRef = React.createRef<HTMLInputElement>();
 
   return (

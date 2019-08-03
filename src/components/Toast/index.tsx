@@ -4,7 +4,7 @@ import { Spinner } from './styled';
 
 export interface OuterProps {}
 
-const Toast: React.FC<OuterProps> = ({ ...props } = {}) => {
+const Toast: React.FC<OuterProps> = ({ ...props }) => {
   return (
     <Spinner {...props} />
   );

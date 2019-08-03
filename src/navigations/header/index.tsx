@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { routes } from './routes'
+import { routes } from './routes';
 import { Navigation, Hamburger, List, ListItem, Link } from './styled';
 
 const HeaderNavigation = () => (
@@ -17,4 +17,4 @@ const HeaderNavigation = () => (
   </Navigation>
 );
 
-export default HeaderNavigation
+export default HeaderNavigation;

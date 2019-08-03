@@ -5,9 +5,9 @@ import { Layout } from './styled';
 
 export interface OuterProps extends RouteComponentProps {}
 
-const Home: React.FC<OuterProps> = ({ ...props } = {}) => {
+const Home: React.FC<OuterProps> = ({ ...props }) => {
   return (
-    <Layout>
+    <Layout {...props}>
       Home
     </Layout>
   );

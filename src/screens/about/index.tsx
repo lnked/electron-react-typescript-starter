@@ -58,5 +58,4 @@ const About: React.FC<OuterProps> = ({ ...props }) => {
   );
 };
 
-
 export default About;

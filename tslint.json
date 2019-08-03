@@ -48,11 +48,12 @@
     "no-shadowed-variable": false,
     "export-name": false,
     "max-line-length": [true, 120],
+    "no-empty-interface": false,
     "no-submodule-imports": false,
     "object-shorthand-properties-first": false,
     "align": [true, "elements", "parameters", "statements", "members"],
     "no-unused-expression": [true, "allow-fast-null-checks"],
-    "no-implicit-dependencies": [true, "dev", ["@"]],
+    "no-implicit-dependencies": [true, "dev", ["@", "app", "i18n", "utils", "hooks", "store", "pages", "theme", "assets", "layouts", "services", "settings", "fragments", "components", "decorators", "svgstore"]],
     "no-import-side-effect": [true, { "ignore-module": "(jest-styled-components|\\.html|\\.css|\\.test.tsx?)$" }],
     "space-in-parens": [false],
     "function-name": [true, {

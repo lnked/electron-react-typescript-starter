@@ -4,7 +4,7 @@ import { Spinner } from './styled';
 
 export interface OuterProps {}
 
-const Switcher: React.FC<OuterProps> = ({ ...props } = {}) => {
+const Switcher: React.FC<OuterProps> = ({ ...props }) => {
   return (
     <Spinner {...props} />
   );

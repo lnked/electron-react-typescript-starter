@@ -5,7 +5,7 @@ import App from '@/initial';
 
 const renderApp = () => {
   ReactDom.render(<App />, document.getElementById('app-root'));
-}
+};
 
 renderApp();
 

@@ -4,7 +4,7 @@ import { Spinner } from './styled';
 
 export interface OuterProps {}
 
-const Dropdown: React.FC<OuterProps> = ({ ...props } = {}) => {
+const Dropdown: React.FC<OuterProps> = ({ ...props }) => {
   return (
     <Spinner {...props} />
   );
