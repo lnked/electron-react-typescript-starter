@@ -1,19 +1,20 @@
 import * as React from 'react';
 
-import { Button as Btn } from './styled';
-
-export interface OuterProps {
-  type?: 'button' | 'submit';
-}
+import { OuterProps } from './types';
+import { Button as StyledButton } from './styled';
 
 const Button: React.FC<OuterProps> = ({ type, ...props } = {}) => {
   return (
-    <Btn type={type} {...props} />
+    <StyledButton type={type} {...props} />
   );
 };
 
 Button.defaultProps = {
   type: 'button',
+  success: false,
+  primary: false,
+  warning: false,
+  danger: false,
 };
 
 export default Button;

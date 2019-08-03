@@ -34,7 +34,7 @@ install:
 script:
   - yarn lint
   - yarn test
-  - yarn build
+  - yarn react:build
 
 after_success:
   # - firebase deploy --token $FIREBASE_TOKEN --non-interactive
