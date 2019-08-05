@@ -14,7 +14,7 @@ const Radio: React.FC<OuterProps> = ({ value, children, onChange, ...props }) =>
 
   const hangelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(e, value.toString());
-  }
+  };
 
   return (
     <Label>

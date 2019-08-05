@@ -26,7 +26,7 @@ const RadioGroup: React.FC<OuterProps> = ({ name, children, checked, ...props })
       name,
       checked: isChecked,
       onChange: (_, value) => handleChange(value),
-    })
+    });
   });
 
   return (
