@@ -106,7 +106,7 @@
     "image-webpack-loader": "5.0.0",
     "imagemin-mozjpeg": "8.0.0",
     "imagemin-webpack-plugin": "2.4.2",
-    "inquirer": "6.5.0",
+    "inquirer": "6.5.1",
     "inspectpack": "4.2.2",
     "jest": "24.8.0",
     "jest-styled-components": "6.3.3",
