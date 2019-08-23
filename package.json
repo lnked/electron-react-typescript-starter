@@ -159,7 +159,7 @@
     "@hot-loader/react-dom": "16.9.0",
     "accounting-js": "1.1.1",
     "core-js": "3.2.1",
-    "date-fns": "2.0.0",
+    "date-fns": "2.0.1",
     "history": "4.9.0",
     "node-ipc": "9.1.1",
     "path-to-regexp": "3.0.0",
