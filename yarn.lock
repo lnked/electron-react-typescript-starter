@@ -4609,10 +4609,10 @@ electron-winstaller@4.0.0:
     lodash.template "^4.2.2"
     temp "^0.9.0"
 
-electron@6.0.9:
-  version "6.0.9"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-6.0.9.tgz#fea15e9fec329248db500b33ba6544a26fe025a3"
-  integrity sha512-lFpSmDNyjpvJFwEnK897Soone3DV7D3ASFUb315H2VTVZSbKib9Kbrsovxf4c+e1q5hTdaONsGIm3Lb4CXIW1g==
+electron@6.0.10:
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-6.0.10.tgz#3468547640c98ed46060711ca70f43d0b2e40818"
+  integrity sha512-eTFm6uTn7NKZE1OtSZSOxNuOrCXXeUR0U3vdF3R00byB7mrNe5AOaXEDDMwtzRGGY1jMuUX9Z7RvgXaCXRYSmw==
   dependencies:
     "@types/node" "^10.12.18"
     electron-download "^4.1.0"
@@ -12259,10 +12259,10 @@ tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
-tslint-config-airbnb@5.11.1:
-  version "5.11.1"
-  resolved "https://registry.yarnpkg.com/tslint-config-airbnb/-/tslint-config-airbnb-5.11.1.tgz#51a27fbb8bf24c144d064a274a71da47e7ece617"
-  integrity sha512-hkaittm2607vVMe8eotANGN1CimD5tor7uoY3ypg2VTtEcDB/KGWYbJOz58t8LI4cWSyWtgqYQ5F0HwKxxhlkQ==
+tslint-config-airbnb@5.11.2:
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/tslint-config-airbnb/-/tslint-config-airbnb-5.11.2.tgz#2f3d239fa3923be8e7a4372217a7ed552671528f"
+  integrity sha512-mUpHPTeeCFx8XARGG/kzYP4dPSOgoCqNiYbGHh09qTH8q+Y1ghsOgaeZKYYQT7IyxMos523z/QBaiv2zKNBcow==
   dependencies:
     tslint-consistent-codestyle "^1.14.1"
     tslint-eslint-rules "^5.4.0"
