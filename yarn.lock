@@ -8037,10 +8037,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-staged@9.4.1:
-  version "9.4.1"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.4.1.tgz#60c0f85745bd398e6460aa7f5adb3cad3a2b862c"
-  integrity sha512-zFRbo1bAJEVf1m33paTTjDVfy2v3lICCqHfmQSgNoI+lWpi7HPG5y/R2Y7Whdce+FKxlZYs/U1sDSx8+nmQdDA==
+lint-staged@9.4.2:
+  version "9.4.2"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.4.2.tgz#14cb577a9512f520691f8b5aefce6a8f7ead6c04"
+  integrity sha512-OFyGokJSWTn2M6vngnlLXjaHhi8n83VIZZ5/1Z26SULRUWgR3ITWpAEQC9Pnm3MC/EpCxlwts/mQWDHNji2+zA==
   dependencies:
     chalk "^2.4.2"
     commander "^2.20.0"
@@ -8723,11 +8723,6 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@0.x.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
-
-mkpath@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/mkpath/-/mkpath-1.0.0.tgz#ebb3a977e7af1c683ae6fda12b545a6ba6c5853d"
-  integrity sha1-67Opd+evHGg65v2hK1Raa6bFhT0=
 
 moo@^0.4.3:
   version "0.4.3"
@@ -10303,10 +10298,10 @@ react-dom@16.10.2:
     prop-types "^15.6.2"
     scheduler "^0.16.2"
 
-react-hot-loader@4.12.14:
-  version "4.12.14"
-  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.12.14.tgz#81ca06ffda0b90aad15d6069339f73ed6428340a"
-  integrity sha512-ecxH4eBvEaJ9onT8vkEmK1FAAJUh1PqzGqds9S3k+GeihSp7nKAp4fOxytO+Ghr491LiBD38jaKyDXYnnpI9pQ==
+react-hot-loader@4.12.15:
+  version "4.12.15"
+  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.12.15.tgz#6bf3984e52edbdf02ea8952777f53da1b3c68c95"
+  integrity sha512-sgkN6g+tgPE6xZzD0Ysqll7KUFYJbMX0DrczT5OxD6S7hZlSnmqSC3ceudwCkiDd65ZTtm+Ayk4Y9k5xxCvpOw==
   dependencies:
     fast-levenshtein "^2.0.6"
     global "^4.3.0"
@@ -10926,19 +10921,25 @@ rollup-plugin-terser@5.1.2:
     serialize-javascript "^1.7.0"
     terser "^4.1.0"
 
-rollup-plugin-url@2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-url/-/rollup-plugin-url-2.2.2.tgz#7623d479be360dd4003742a14eb56add2fdd5b5a"
-  integrity sha512-89cE0yr0UnDZgMfI8aWrBthnOS2ldARAxeF9rRvagQr5Pqrqob74PMNEodlCMdAU+LdykU7dbTEutVKWVhhORA==
+rollup-plugin-url@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-url/-/rollup-plugin-url-3.0.0.tgz#38c1540eb02cf29aec2b7fb57ad3877505ed6a75"
+  integrity sha512-zeSVpWwsePvc6oTw5eyAlkfHhS6ZT9/pNVVgyzbeMTgd6rovxgg0FPE4o86b9Snembc0rCAaTvEsSfZinJMITw==
   dependencies:
     mime "^2.4.4"
-    mkpath "^1.0.0"
-    rollup-pluginutils "^2.8.1"
+    rollup-pluginutils "^2.8.2"
 
 rollup-pluginutils@^2.3.3, rollup-pluginutils@^2.5.0, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.1.tgz#8fa6dd0697344938ef26c2c09d2488ce9e33ce97"
   integrity sha512-J5oAoysWar6GuZo0s+3bZ6sVZAC0pfqKz68De7ZgDi5z63jOVZn1uJL/+z1jeKHNbGII8kAyHF5q8LnxSX5lQg==
+  dependencies:
+    estree-walker "^0.6.1"
+
+rollup-pluginutils@^2.8.2:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
+  integrity sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
   dependencies:
     estree-walker "^0.6.1"
 
