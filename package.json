@@ -75,7 +75,7 @@
     "@types/react-hot-loader": "4.1.0",
     "@types/react-router-dom": "5.1.0",
     "@types/semver": "6.2.0",
-    "@types/styled-components": "4.1.19",
+    "@types/styled-components": "4.1.20",
     "@types/webpack": "4.39.5",
     "@types/webpack-env": "1.14.1",
     "babel-loader": "8.0.6",
