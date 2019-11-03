@@ -14,16 +14,18 @@ const Pagination: React.FC<OuterProps> = ({ page, limit, total, onClick, ...prop
 
   return (
     <List {...props}>
-      {Array(pages).fill(0).map((_, idx) => (
-        <ListItem key={`${idx}`}>
-          <Button
-            className={(page === idx && 'current') || ''}
-            onClick={() => onClick && onClick(idx)}
-          >
-            {idx}
-          </Button>
-        </ListItem>
-      ))}
+      {Array(pages).fill(0).map((_, idx) => {
+        const current = idx + 1;
+        const className = (page === current && 'current') || '';
+
+        return (
+          <ListItem key={`${idx}`}>
+            <Button className={className} onClick={() => onClick && onClick(current)}>
+              {current}
+            </Button>
+          </ListItem>
+        );
+      })}
     </List>
   );
 };

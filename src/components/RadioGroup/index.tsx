@@ -31,7 +31,6 @@ const RadioGroup: React.FC<OuterProps> = ({ name, children, checked, ...props })
 
   return (
     <Section {...props}>
-      <div>value: {value}</div>
       {items}
     </Section>
   );

@@ -1,14 +1,26 @@
 import * as React from 'react';
 
-import { Field } from './styled';
+import { Label, Field, Checker, Text } from './styled';
 
-export interface OuterProps {}
+export interface OuterProps {
+  children?: JSX.Element | JSX.Element[] | string;
+}
 
-const Checkbox: React.FC<OuterProps> = ({ ...props }) => {
+const Checkbox: React.FC<OuterProps> = ({ children, ...props } = {}) => {
   const forwardRef = React.createRef<HTMLInputElement>();
 
   return (
-    <Field type="checkbox" ref={forwardRef} {...props} />
+    <Label>
+      <Field type="checkbox" ref={forwardRef} {...props} />
+
+      <Checker />
+
+      {children && (
+        <Text>
+          {children}
+        </Text>
+      )}
+    </Label>
   );
 };
 

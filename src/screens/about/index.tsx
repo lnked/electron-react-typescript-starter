@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { Layout } from './styled';
+import { Layout, Box } from './styled';
 import {
   Button,
   ButtonGroup,
@@ -12,7 +12,7 @@ import {
   Pagination,
   Radio,
   RadioGroup,
-  // Switcher,
+  Switcher,
   // Toast,
   // Toggle,
 } from '@/components';
@@ -20,36 +20,62 @@ import {
 export interface OuterProps extends RouteComponentProps {}
 
 const About: React.FC<OuterProps> = ({ ...props }) => {
+  const [page, setPage] = React.useState(1);
+
   return (
     <Layout {...props}>
-      <Input />
+      <Box>
+        <Input />
+      </Box>
 
-      <ButtonGroup>
-        <Button>Test button</Button>
-        <Button type="submit">Submit button</Button>
-        <Button type="button">Default button</Button>
-      </ButtonGroup>
+      <Box>
+        <ButtonGroup>
+          <Button>Success button</Button>
+          <Button success>Success button</Button>
+          <Button primary>Primary button</Button>
+          <Button danger>Danger button</Button>
+          <Button warning>Warning button</Button>
+        </ButtonGroup>
+      </Box>
 
-      <Checkbox />
+      <Box>
+        <Checkbox />
+
+        <Checkbox>
+          Checkbox with label
+        </Checkbox>
+      </Box>
 
       {/* <Dropdown /> */}
 
       {/* <Loader /> */}
 
-      <Pagination
-        page={1}
-        limit={10}
-        total={100}
-        onClick={(page: number) => alert(page)}
-      />
+      <Box>
+        <Pagination
+          page={page}
+          limit={10}
+          total={100}
+          onClick={(page: number) => setPage(page)}
+        />
+      </Box>
 
-      <RadioGroup checked={2} name="test">
-        <Radio value={1} />
-        <Radio value={2} />
-        <Radio value={3} />
-      </RadioGroup>
+      <Box>
+        <RadioGroup checked={2} name="test">
+          <Radio value={1} />
+          <Radio value={2} />
+          <Radio value={3} />
+        </RadioGroup>
+      </Box>
 
-      {/* <Switcher /> */}
+      <Box>
+        <Radio name="test2" value={1}>
+          Radio with label
+        </Radio>
+      </Box>
+
+      <Box>
+        <Switcher />
+      </Box>
 
       {/* <Toast /> */}
 
