@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@babel/cli": "7.7.0",
-    "@babel/core": "7.7.0",
+    "@babel/core": "7.7.2",
     "@babel/plugin-proposal-class-properties": "7.7.0",
     "@babel/plugin-proposal-decorators": "7.7.0",
     "@babel/plugin-proposal-export-default-from": "7.5.2",
@@ -63,7 +63,7 @@
     "@babel/plugin-transform-typeof-symbol": "7.2.0",
     "@babel/preset-env": "7.7.1",
     "@babel/preset-react": "7.7.0",
-    "@babel/preset-typescript": "7.7.0",
+    "@babel/preset-typescript": "7.7.2",
     "@gfx/zopfli": "1.0.14",
     "@react-native-community/eslint-config": "0.0.5",
     "@types/accounting": "0.4.1",
@@ -154,9 +154,9 @@
     "yargs": "14.2.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "7.7.1",
+    "@babel/runtime-corejs3": "7.7.2",
     "@emotion/core": "10.0.22",
-    "@hot-loader/react-dom": "16.10.2",
+    "@hot-loader/react-dom": "16.11.0",
     "accounting-js": "1.1.1",
     "core-js": "3.4.0",
     "date-fns": "2.6.0",
@@ -165,7 +165,7 @@
     "path-to-regexp": "3.1.0",
     "react": "16.11.0",
     "react-dom": "16.11.0",
-    "react-hot-loader": "4.12.15",
+    "react-hot-loader": "4.12.16",
     "react-router-dom": "5.1.2",
     "styled-components": "4.4.1",
     "uuid": "3.3.3"
