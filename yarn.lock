@@ -1750,13 +1750,12 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-hot-loader@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@types/react-hot-loader/-/react-hot-loader-4.1.0.tgz#8e072b44331ad0182918228c5d2bf514646760de"
-  integrity sha512-N/+Ua6kSrehJ5vpu4b2tAG4NjMcXQPlStnkUzjNlPokae97sUDtj096WlgN3ApefCvggPjJPP5iutyZ5dKBNPQ==
+"@types/react-hot-loader@4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@types/react-hot-loader/-/react-hot-loader-4.1.1.tgz#8bc0a4add6b97ae833e5124a5591d5320026aa24"
+  integrity sha512-vsP4f1wz+rw13dEF0/W55O/gQT12xcjsf7EVWyttTtKNG7S3U767aSAAJP0PVV/792kq3dv8CkbIcLjzxcSBhQ==
   dependencies:
-    "@types/node" "*"
-    "@types/react" "*"
+    react-hot-loader "*"
 
 "@types/react-native@*":
   version "0.60.2"
@@ -4889,10 +4888,10 @@ electron-winstaller@4.0.0:
     lodash.template "^4.2.2"
     temp "^0.9.0"
 
-electron@7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-7.1.0.tgz#29ca01958ddbc6fb5ec6950279efec4f93045384"
-  integrity sha512-ITWtgmiXvyzdz22g/ksBORay1aBrt+JwFfL4PWi1SoSk9yWOllIoa8smneQ121DCgQLLhfmT3aCF1qQhxEpCIQ==
+electron@7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-7.1.1.tgz#98be17d850e64689a09ab6dd1e437b36307f2fcf"
+  integrity sha512-NJPv4SuMJlRUtXBd/Ey9XKSLOZ4+hxsOrHHPXwrBQNNdeZesoSrTMgPymee/FwMRtrSt0Pz8NccEZUu/pxmbhQ==
   dependencies:
     "@electron/get" "^1.0.1"
     "@types/node" "^12.0.12"
@@ -10608,7 +10607,7 @@ react-dom@16.11.0:
     prop-types "^15.6.2"
     scheduler "^0.17.0"
 
-react-hot-loader@4.12.16:
+react-hot-loader@*, react-hot-loader@4.12.16:
   version "4.12.16"
   resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.12.16.tgz#353bd07fbb08f791b5720535f86b0a8f9b651317"
   integrity sha512-KC33uTBacgdunMtfpZFP2pgPpyvKIcCwuh0XmWESbeFrkWLqUtCFN91zyaTdU5OiAM982+E8xh1gjE5EINumaw==
