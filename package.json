@@ -158,7 +158,7 @@
     "@emotion/core": "10.0.22",
     "@hot-loader/react-dom": "16.11.0",
     "accounting-js": "1.1.1",
-    "core-js": "3.4.7",
+    "core-js": "3.4.8",
     "date-fns": "2.8.1",
     "history": "4.10.1",
     "node-ipc": "9.1.1",
