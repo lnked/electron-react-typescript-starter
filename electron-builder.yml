@@ -7,7 +7,7 @@ directories:
   output: release
   buildResources: dest
 
-electronVersion: 6.0.1
+electronVersion: 7.1.6
 
 files:
   - dest/**/*
