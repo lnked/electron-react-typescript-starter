@@ -28,14 +28,14 @@ export default {
       include: {
         appConfig: `${__dirname}/public/config.js`,
       },
-      paths: ['public', 'dist'],
+      paths: ['public', 'dest'],
       extensions: ['.json', '.js', '.html']
     }),
     nodeResolve(),
     url(),
     json({
       include: [
-        'dist/**',
+        'dest/**',
         'node_modules/**',
       ],
       preferConst: true,

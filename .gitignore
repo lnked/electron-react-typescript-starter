@@ -20,7 +20,7 @@ release-builds
 !.env.example
 
 # Compiled output
-dist
+dest
 profiling
 .docz
 .cache

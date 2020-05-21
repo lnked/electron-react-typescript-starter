@@ -3,9 +3,9 @@ const { configs } = require('./html-minify');
 
 run({
   crawl: true,
-  source: 'dist',
+  source: 'dest',
   saveAs: 'html',
-  destination: 'dist',
+  destination: 'dest',
   inlineCss: true,
   cacheAjaxRequests: false,
   skipThirdPartyRequests: true,

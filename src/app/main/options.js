@@ -1,3 +1,5 @@
+import { join } from 'path';
+import isDev from 'electron-is-dev';
 import appConfig from 'appConfig';
 
 export const isMac = /darwin/.test(process.platform);
@@ -7,24 +9,26 @@ export const config = appConfig;
 
 export const environment = process.env;
 
-const instances = {};
+export const windows = {
+  main: null,
+};
 
-config.windows.forEach(({ name }) => {
-  instances[name] = null;
-});
-
-export { instances }
+const productionOptions = {
+  ...(!isDev && {
+    icon: join(__dirname, '/icons/mac/app.icns'),
+  }),
+  preloadWindow: true,
+};
 
 export const browserConfig = {
+  ...productionOptions,
   width: 1024,
   height: 728,
   resizable: true,
-  preloadWindow: true,
-  icon: `file://${__dirname}/icons/mac/app.icns`,
   webPreferences: {
     nodeIntegration: false,
     contextIsolation: true,
     backgroundThrottling: false,
-    preload: './dist/preload.js',
+    preload: './dest/preload.js',
   },
 };

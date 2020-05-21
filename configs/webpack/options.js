@@ -27,7 +27,7 @@ module.exports = {
   release: options.release || options.analyze || false,
   analyze: options.analyze || false,
   compression: options.release || false,
-  dist: resolve(root, 'dist'),
+  dest: resolve(root, 'dest'),
   public: resolve(root, 'public'),
   sourcePath: resolve(root, 'src'),
   serverPath: resolve(root, 'src/server'),

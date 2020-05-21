@@ -4,7 +4,7 @@ const options = require('../options');
 
 module.exports = {
   output: {
-    path: options.dist,
+    path: options.dest,
     pathinfo: false,
     jsonpFunction: 'WJ',
     hotUpdateFunction: 'UF',

@@ -5,16 +5,16 @@ asar: true
 
 directories:
   output: release
-  buildResources: dist
+  buildResources: dest
 
 electronVersion: 6.0.1
 
 files:
-  - dist/**/*
+  - dest/**/*
 
 mac:
   category: public.app-category.utilities
-  icon: dist/icons/mac/app.icns
+  icon: dest/icons/mac/app.icns
   identity: null
   target:
     - target: dmg
@@ -26,8 +26,8 @@ mac:
 
 dmg:
   title: '${productName}'
-  background: dist/icons/png/1024x1024.png
-  icon: dist/icons/mac/app.icns
+  background: dest/icons/png/1024x1024.png
+  icon: dest/icons/mac/app.icns
   iconSize: 128
 
 win:
@@ -40,7 +40,7 @@ win:
       arch:
         - x64
         - ia32
-  icon: dist/icons/win/app.ico
+  icon: dest/icons/win/app.ico
 
 nsis:
   oneClick: false
@@ -48,11 +48,11 @@ nsis:
   menuCategory: true
   runAfterFinish: false
   deleteAppDataOnUninstall: true
-  installerIcon: dist/icons/win/app.ico
-  uninstallerIcon: dist/icons/win/app.ico
-  installerHeaderIcon: dist/icons/win/app.ico
-  # installerSidebar: dist/icons/png/1024x1024.png
-  # uninstallerSidebar: dist/icons/png/1024x1024.png
+  installerIcon: dest/icons/win/app.ico
+  uninstallerIcon: dest/icons/win/app.ico
+  installerHeaderIcon: dest/icons/win/app.ico
+  # installerSidebar: dest/icons/png/1024x1024.png
+  # uninstallerSidebar: dest/icons/png/1024x1024.png
   allowToChangeInstallationDirectory: true
 
 linux:
@@ -61,7 +61,7 @@ linux:
       arch:
         - x64
         - ia32
-  icon: dist/icons/png/512x512.png
+  icon: dest/icons/png/512x512.png
   synopsis: Project Synopsis
   category: Utility
 

@@ -10,7 +10,7 @@ module.exports = options.development && {
     compress: true,
     writeToDisk: true,
     publicPath: '/',
-    contentBase: './dist',
+    contentBase: './dest',
     historyApiFallback: true,
     clientLogLevel: 'error',
     headers: {

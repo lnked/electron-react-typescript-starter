@@ -17,12 +17,12 @@
     "strict": true,
     "allowJs": true,
     "baseUrl": "src",
-    "outDir": "dist",
+    "outDir": "dest",
     "lib": ["es6", "es7", "dom"],
     "paths": {
       "@/*": ["./*"]
     },
     "typeRoots": ["node_modules/@types", "typings/*"]
   },
-  "exclude": ["node_modules", "configs", "dist", "src/**/*.test.tsx", "src/**/*.spec.tsx"]
+  "exclude": ["node_modules", "configs", "dest", "src/**/*.test.tsx", "src/**/*.spec.tsx"]
 }

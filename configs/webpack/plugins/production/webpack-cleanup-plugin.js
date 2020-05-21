@@ -8,7 +8,7 @@ module.exports = () => {
       when: 'before',
       exclude: [],
       include: [
-        `${options.dist}/*.*`,
+        `${options.dest}/*.*`,
       ],
     }),
   ]

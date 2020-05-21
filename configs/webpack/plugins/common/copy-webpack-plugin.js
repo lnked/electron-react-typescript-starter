@@ -1,19 +1,20 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const options = require('../../options');
 
 module.exports = () => {
   return [
-    new CopyWebpackPlugin([
-      {
-        from: options.public,
-        to: options.dist,
-        force: true,
-        cache: true,
-      },
-    ], {
-      ignore: ['.gitkeep', '.DS_Store', 'index.html'],
-      copyUnmodified: true,
-    })
-  ];
-};
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'public',
+          to: options.dest,
+          globOptions: {
+            dot: true,
+            ignore: ['.gitkeep', '.DS_Store', 'index.html'],
+          },
+        },
+      ],
+    }),
+  ]
+}

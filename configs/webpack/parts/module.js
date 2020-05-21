@@ -4,7 +4,7 @@ module.exports = {
   module: {
     rules,
     noParse: [
-      new RegExp('node_modules/dist/axios.min.js'),
+      new RegExp('node_modules/dest/axios.min.js'),
     ],
   },
 }

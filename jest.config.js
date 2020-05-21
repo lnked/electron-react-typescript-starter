@@ -39,7 +39,7 @@ module.exports = {
     },
   },
   testMatch: ['<rootDir>/src/**/__tests__/**/*.(ts|tsx|js)', '<rootDir>/src/**/?(*.)(spec|test).(ts|tsx|js)'],
-  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  testPathIgnorePatterns: ['/node_modules/', '/dest/'],
 
   moduleNameMapper: {
     '^app/(.*)': '<rootDir>/src/app/$1',
@@ -62,6 +62,6 @@ module.exports = {
 
   // Setup Coverage
   coverageDirectory: '<rootDir>/coverage',
-  coveragePathIgnorePatterns: ['/node_modules/', '/configs/', '/typings/', '/public/', '/dist/'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/configs/', '/typings/', '/public/', '/dest/'],
   collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', '!**/node_modules/**'],
 };
