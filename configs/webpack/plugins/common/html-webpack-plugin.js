@@ -23,11 +23,11 @@ const options =
 module.exports = () => {
   return [
     new HtmlWebpackPlugin({
-      title: 'React app',
+      title: 'Kenguru',
       inject: true,
       filename: 'index.html',
       template: resolve(root, 'public/index.html'),
-      description: 'React starter',
+      description: 'Kenguru shopping',
       PUBLIC_URL: '',
       ...options
     }),

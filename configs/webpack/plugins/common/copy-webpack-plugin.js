@@ -7,7 +7,7 @@ module.exports = () => {
     new CopyPlugin({
       patterns: [
         {
-          from: 'public',
+          from: options.public,
           to: options.dest,
           globOptions: {
             dot: true,

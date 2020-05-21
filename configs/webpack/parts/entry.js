@@ -1,11 +1,13 @@
 const { resolve } = require('path');
-const { sourcePath } = require('../options');
+
+const options = require('../options');
+// const { polyfills } = require('../polyfills');
 
 module.exports = {
-  context: sourcePath,
   entry: {
     app: [
-      'core-js', resolve(sourcePath, 'index.tsx'),
+      // ...polyfills,
+      resolve(options.sourcePath, 'index.tsx'),
     ],
   },
 }

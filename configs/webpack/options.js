@@ -10,7 +10,10 @@ process.env.NODE_ENV = process.env.BABEL_ENV = environment;
 const production = environment === 'production';
 const development = environment === 'development';
 
+const destName = 'dest';
+const publicName = 'public';
 const publicPath = '';
+const staticName = 'static';
 
 const hashName = development
   ? '[name]'
@@ -19,6 +22,8 @@ const hashName = development
 module.exports = {
   root,
   hashName,
+  destName,
+  staticName,
   publicPath,
   production,
   development,
@@ -27,8 +32,10 @@ module.exports = {
   release: options.release || options.analyze || false,
   analyze: options.analyze || false,
   compression: options.release || false,
-  dest: resolve(root, 'dest'),
-  public: resolve(root, 'public'),
+  dest: resolve(root, destName),
+  public: resolve(root, publicName),
+  staticFolder: staticName,
+  staticPath: resolve(destName, staticName),
   sourcePath: resolve(root, 'src'),
   serverPath: resolve(root, 'src/server'),
   cacheDirectory: resolve(root, '.cache'),

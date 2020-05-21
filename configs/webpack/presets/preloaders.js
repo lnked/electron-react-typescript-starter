@@ -13,7 +13,7 @@ module.exports = () => {
       enforce: 'pre',
     },
     {
-      test: /\.js$/,
+      test: /\.(ts|js)x?$/,
       enforce: 'pre',
       use: [
         cache(),

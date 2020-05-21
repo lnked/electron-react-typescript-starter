@@ -6,8 +6,6 @@ module.exports = () => {
       swDest: 'sw.js',
       include: [/\.html$/, /\.js$/, /\.json$/],
       exclude: [/\.jpg$/, /\.png$/, /\.map$/, /runtime.*\.js$/, /^manifest.*\.js(?:on)?$/],
-      precacheManifestFilename: 'manifest.[manifestHash].js',
     }),
   ]
 }
-

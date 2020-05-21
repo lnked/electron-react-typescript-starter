@@ -1,8 +1,10 @@
-const svg = require('../loaders/svg-url-loader');
+const svg = require('../loaders/svg-loader');
 const url = require('../loaders/url-loader');
 const file = require('../loaders/file-loader');
 const cache = require('../loaders/cache-loader');
 const imageWebpack = require('../loaders/image-webpack-loader');
+
+const { staticName } = require('../options');
 
 module.exports = () => {
   return [
@@ -11,7 +13,7 @@ module.exports = () => {
       use: [
         cache(),
         file({
-          outputPath: 'assets/',
+          outputPath: `${staticName}/assets/`,
         }),
         imageWebpack(),
       ],
@@ -19,11 +21,7 @@ module.exports = () => {
     {
       test: /\.svg$/,
       use: [
-        cache(),
-        svg({
-          limit: 10 * 1024,
-          noquotes: true,
-        }),
+        ...svg(),
       ],
     },
   ];
